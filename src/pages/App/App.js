@@ -5,15 +5,25 @@ import MovieList from '../../components/MovieList/MovieList';
 import SignupPage from '../../pages/SignupPage/SignupPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import userService from '../../utils/userService';
+import movieApi from '../../services/movie_api';
 
 class App extends React.Component {
 
   constructor() {
     super();
     this.state = {
+      nowPlayingMovies: [],
       // Initialize user if there's a token, otherwise null
       user: userService.getUser()
     };
+  }
+
+  async componentDidMount() {
+    let nowPlayingMovies = await movieApi.getNowPlaying();
+    this.setState({
+      nowPlayingMovies: nowPlayingMovies,
+    });
+    console.log(this.state.nowPlayingMovies);
   }
 
   handleLogout = () => {
@@ -33,7 +43,9 @@ class App extends React.Component {
         <div className="container">
           <NavBar user={this.state.user} handleLogout={this.handleLogout} />
           <Switch>
-            <Route exact path='/' component={MovieList} />
+            <Route exact path='/' render={() => {
+              return (<MovieList nowPlayingMovies={this.state.nowPlayingMovies} />)
+            }} />
             <Route exact path='/signup' render={({ history }) =>
               <SignupPage
                 history={history}
