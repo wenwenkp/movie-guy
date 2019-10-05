@@ -28,7 +28,7 @@ const NavBar = () => {
                         <Link to='/signup'><span className="nav-link">Sign Up</span></Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#">Log In</a>
+                        <Link to='/login'><span className="nav-link">Log In</span></Link>
                     </li>
                 </ul>
                 <form className="form-inline my-2 my-lg-0">

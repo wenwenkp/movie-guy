@@ -2,8 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import './App.css';
 import NavBar from '../../components/NavBar/NavBar';
-import SignupForm from '../../components/SignupForm/SignupForm';
 import MovieList from '../../components/MovieList/MovieList';
+import SignupPage from '../../pages/SignupPage/SignupPage';
+import LoginPage from '../../pages/LoginPage/LoginPage';
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path='/' component={MovieList} />
-          <Route exact path='/signup' component={SignupForm} />
+          <Route exact path='/signup' component={SignupPage} />
+          <Route exact path='/login' component={LoginPage} />
         </Switch>
       </div>
     </Router>
