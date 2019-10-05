@@ -21,7 +21,7 @@ class App extends React.Component {
     return (
       <Router>
         <div className="container">
-          <NavBar />
+          <NavBar user={this.state.user} />
           <Switch>
             <Route exact path='/' component={MovieList} />
             <Route exact path='/signup' component={SignupPage} />
