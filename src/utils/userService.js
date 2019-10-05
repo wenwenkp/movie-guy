@@ -20,7 +20,7 @@ function signup(user) {
 }
 
 function getUser() {
-//   return tokenService.getUserFromToken();
+  return tokenService.getUserFromToken();
 }
 
 function logout() {
