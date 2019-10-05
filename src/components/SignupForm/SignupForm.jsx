@@ -12,25 +12,25 @@ class SignupForm extends React.Component {
     };
 
     handleChange = (e) => {
-        //     this.props.updateMessage('');
-        //     this.setState({
-        //       // Using ES2015 Computed Property Names
-        //       [e.target.name]: e.target.value
-        //     });
+            this.props.updateMessage('');
+            this.setState({
+              // Using ES2015 Computed Property Names
+              [e.target.name]: e.target.value
+            });
     }
 
     handleSubmit = async (e) => {
-        //     e.preventDefault();
-        //     try {
+            e.preventDefault();
+            try {
         //       await userService.signup(this.state);
         //       // Let <App> know a user has signed up!
         //       this.props.handleSignupOrLogin();
         //       // Successfully signed up - show GamePage
         //       this.props.history.push('/');
-        //     } catch (err) {
+            } catch (err) {
         //       // Invalid user data (probably duplicate email)
-        //       this.props.updateMessage(err.message);
-        //     }
+              this.props.updateMessage(err.message);
+            }
     }
 
     isFormInvalid() {
@@ -43,7 +43,7 @@ class SignupForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="form-row mt-3 justify-content-md-center">
                         <div className="col-md-4">
-                            <input type="text" className="form-control" placeholder="Name" value={this.state.username} name="name" onChange={this.handleChange} />
+                            <input type="text" className="form-control" placeholder="Name" value={this.state.username} name="username" onChange={this.handleChange} />
                         </div>
                     </div>
                     <div className="form-row mt-3 justify-content-md-center">
