@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import MovieList from '../../components/MovieList/MovieList';
+import Movie from '../../components/Movie/Movie';
 import SignupPage from '../../pages/SignupPage/SignupPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import userService from '../../utils/userService';
@@ -45,6 +46,9 @@ class App extends React.Component {
           <Switch>
             <Route exact path='/' render={() => {
               return (<MovieList nowPlayingMovies={this.state.nowPlayingMovies} />)
+            }} />
+            <Route exact path='/movie/:id' render={() => {
+              return (<Movie />)
             }} />
             <Route exact path='/signup' render={({ history }) =>
               <SignupPage

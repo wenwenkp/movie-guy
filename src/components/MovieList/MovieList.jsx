@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const MovieList = (props) => {
 
@@ -11,9 +12,9 @@ const MovieList = (props) => {
                 <div className='col-sm-12'>
                     {props.nowPlayingMovies.map((movie) => {
                         return (
-                            <div className='col-md-3 col-sm-4' key={movie.id}>
+                            <Link to={`/movie/${movie.id}`} key={movie.id}>
                                 <img src={movie.poster_path} alt={movie.title}></img>
-                            </div>
+                            </Link>
                         )
                     })}
                 </div>
