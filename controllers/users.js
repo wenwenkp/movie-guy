@@ -12,18 +12,10 @@ async function signup(req, res){
     const user = new User(req.body);
 
     try{
-  console.log('step 1');
-
         await user.save();
-    console.log('step 2');
-
         const token = createJWT(user);
-    console.log('step 3');
-
         res.json({token});
-        
     }catch(err){
-      console.log(err);
         res.status(400).json(err);
     }
 }
