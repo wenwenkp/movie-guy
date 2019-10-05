@@ -23,6 +23,7 @@ class App extends React.Component {
   }
 
   handleSignupOrLogin = () => {
+    console.log('handlesinguporlogin');
     this.setState({user: userService.getUser()});
   }
 
