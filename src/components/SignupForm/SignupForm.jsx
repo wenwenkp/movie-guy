@@ -34,7 +34,7 @@ class SignupForm extends React.Component {
     }
 
     isFormInvalid() {
-        //     return !(this.state.name && this.state.email && this.state.password === this.state.passwordConf);
+            return !(this.state.username && this.state.email && this.state.password === this.state.passwordConf);
     }
 
     render() {
