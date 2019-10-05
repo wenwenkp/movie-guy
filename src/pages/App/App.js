@@ -47,8 +47,8 @@ class App extends React.Component {
             <Route exact path='/' render={() => {
               return (<MovieList nowPlayingMovies={this.state.nowPlayingMovies} />)
             }} />
-            <Route exact path='/movie/:id' render={() => {
-              return (<Movie />)
+            <Route exact path='/movie/:id' render={(props) => {
+              return (<Movie id={props.match.params.id} />)
             }} />
             <Route exact path='/signup' render={({ history }) =>
               <SignupPage

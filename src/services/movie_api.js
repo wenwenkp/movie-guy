@@ -5,10 +5,6 @@ const apiBaseUrl = 'http://api.themoviedb.org/3';
 const nowPlayingUrl = `${apiBaseUrl}/movie/now_playing?api_key=${API_KEY}`;
 const imageBaseUrl = 'http://image.tmdb.org/t/p/w300';
 
-
-
-
-
 async function getNowPlaying() {
     let result = await fetch(nowPlayingUrl, { mode: 'cors' }).then(response => response.json());
     let nowPlayingMovies = result.results;
@@ -19,6 +15,16 @@ async function getNowPlaying() {
     return nowPlaying;
 };
 
+async function getMovie(id) {
+    let movieId = id;
+    console.log(id);
+    const movieUrl = `${apiBaseUrl}/movie/${movieId}?api_key=${API_KEY}`;
+    let movie = await fetch(movieUrl, { mode: 'cors' }).then(response => response.json());
+    movie.poster_path = imageBaseUrl + movie.poster_path;
+    return movie;
+};
+
 module.exports = {
     getNowPlaying,
+    getMovie,
 };
