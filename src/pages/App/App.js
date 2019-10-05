@@ -22,6 +22,10 @@ class App extends React.Component {
     this.setState({ user: null });
   }
 
+  handleSignupOrLogin = () => {
+    this.setState({user: userService.getUser()});
+  }
+
   render() {
     return (
       <Router>
@@ -29,8 +33,18 @@ class App extends React.Component {
           <NavBar user={this.state.user} handleLogout={this.handleLogout} />
           <Switch>
             <Route exact path='/' component={MovieList} />
-            <Route exact path='/signup' component={SignupPage} />
-            <Route exact path='/login' component={LoginPage} />
+            <Route exact path='/signup' render={({ history }) =>
+              <SignupPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            } />
+            <Route exact path='/login' render={({ history }) =>
+              <LoginPage
+                history={history}
+                handleSignupOrLogin={this.handleSignupOrLogin}
+              />
+            } />
           </Switch>
         </div>
       </Router>
