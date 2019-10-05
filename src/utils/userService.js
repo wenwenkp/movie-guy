@@ -24,7 +24,7 @@ function getUser() {
 }
 
 function logout() {
-//   tokenService.removeToken();
+  tokenService.removeToken();
 }
 
 function login(creds) {

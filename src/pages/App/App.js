@@ -17,11 +17,16 @@ class App extends React.Component {
     };
   }
 
+  handleLogout = () => {
+    userService.logout();
+    this.setState({ user: null });
+  }
+
   render() {
     return (
       <Router>
         <div className="container">
-          <NavBar user={this.state.user} />
+          <NavBar user={this.state.user} handleLogout={this.handleLogout} />
           <Switch>
             <Route exact path='/' component={MovieList} />
             <Route exact path='/signup' component={SignupPage} />
