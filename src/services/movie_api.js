@@ -1,19 +1,10 @@
-// const dotenv = require('dotenv')
-// const buf = Buffer.from('BASIC=basic')
-// const config = dotenv.parse(buf) // will return an object
-// const api = dotenv
-// console.log(typeof config, config) // object { BASIC : 'basic' }
-
 const API_KEY = process.env.REACT_APP_API_KEY;
-// const API_KEY='90ce4aaf41910d53cce3f11e3053992f';
 
-
-const apiBaseUrl = 'http://api.themoviedb.org/3';
+const apiBaseUrl = 'httpsx://api.themoviedb.org/3';
 const nowPlayingUrl = `${apiBaseUrl}/movie/now_playing?api_key=${API_KEY}`;
-const imageBaseUrl = 'http://image.tmdb.org/t/p/w300';
+const imageBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 async function getNowPlaying() {
-    // console.log(API_KEY);
     let result = await fetch(nowPlayingUrl, { mode: 'cors' }).then(response => response.json());
     let nowPlayingMovies = result.results;
 
