@@ -16,9 +16,21 @@ async function getNowPlaying() {
     // console.log(API_KEY);
     let result = await fetch(nowPlayingUrl, { mode: 'cors' }).then(response => response.json());
     let nowPlayingMovies = result.results;
+
+    let pages = 10;
+
+    if(result.total_pages < 10) pages = result.total_pages;
+    for(let i = 2; i <= pages; i++){
+        let nextPageUrl = nowPlayingUrl + `&page=${i}`;
+    
+        let content = await fetch(nextPageUrl, {mode: 'cors'}).then(response => response.json());
+        nowPlayingMovies = nowPlayingMovies.concat(content.results);
+    }
     let nowPlaying = nowPlayingMovies.map((movie)=>{
-        movie.poster_path = imageBaseUrl + movie.poster_path;
-        return movie;
+        if(movie.poster_path !== null){
+            movie.poster_path = imageBaseUrl + movie.poster_path;
+        }
+        return movie;    
     });
     return nowPlaying;
 };
@@ -28,6 +40,7 @@ async function getMovie(id) {
     const movieUrl = `${apiBaseUrl}/movie/${movieId}?api_key=${API_KEY}`;
     let movie = await fetch(movieUrl, { mode: 'cors' }).then(response => response.json());
     movie.poster_path = imageBaseUrl + movie.poster_path;
+    
     return movie;
 };
 

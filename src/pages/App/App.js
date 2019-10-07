@@ -24,7 +24,6 @@ class App extends React.Component {
     this.setState({
       nowPlayingMovies: nowPlayingMovies,
     });
-    console.log(this.state.nowPlayingMovies);
   }
 
   handleLogout = () => {

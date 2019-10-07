@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const MovieList = (props) => {
 
@@ -11,11 +11,15 @@ const MovieList = (props) => {
                 </div>
                 <div className='col-sm-12'>
                     {props.nowPlayingMovies.map((movie) => {
-                        return (
-                            <Link to={`/movie/${movie.id}`} key={movie.id}>
-                                <img src={movie.poster_path} alt={movie.title}></img>
-                            </Link>
-                        )
+                        if (movie.poster_path !== null) {
+                            return (
+                                <Link to={`/movie/${movie.id}`} key={movie.id}>
+                                    <img src={movie.poster_path} alt={movie.title}></img>
+                                </Link>
+                            )
+                        }else {
+                            return null;
+                        }
                     })}
                 </div>
             </div>
