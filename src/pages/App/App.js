@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import MovieList from '../../components/MovieList/MovieList';
 import Movie from '../../components/Movie/Movie';
+import Search from '../../components/Search/Search';
 import SignupPage from '../../pages/SignupPage/SignupPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 import userService from '../../utils/userService';
@@ -49,6 +50,9 @@ class App extends React.Component {
             }} />
             <Route exact path='/movie/:id' render={(props) => {
               return (<Movie id={props.match.params.id} />)
+            }} />
+            <Route exact path='/search/:input' render={(props) => {
+              return (<Search input={props.match.params.input} />)
             }} />
             <Route exact path='/signup' render={({ history }) =>
               <SignupPage
