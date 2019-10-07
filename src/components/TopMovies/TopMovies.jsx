@@ -1,13 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
-const MovieList = (props) => {
-
+const TopMovies = (props) => {
     return (
         <div className='container'>
             <div className='row'>
                 <div className='col-sm-12'>
-                    <h1>Movies Now Playing:</h1>
+                    <h1>Top Rated Movies:</h1>
                 </div>
                 <div className='col-sm-12'>
                     {props.movies.map((movie) => {
@@ -27,4 +26,4 @@ const MovieList = (props) => {
     )
 }
 
-export default MovieList;
+export default TopMovies;

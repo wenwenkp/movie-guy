@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import MovieList from '../../components/MovieList/MovieList';
+import TopMovies from '../../components/TopMovies/TopMovies';
 import Movie from '../../components/Movie/Movie';
 import Search from '../../components/Search/Search';
 import SignupPage from '../../pages/SignupPage/SignupPage';
@@ -15,6 +16,7 @@ class App extends React.Component {
     super();
     this.state = {
       nowPlayingMovies: [],
+      topRatedMovies: [],
       // Initialize user if there's a token, otherwise null
       user: userService.getUser()
     };
@@ -22,8 +24,10 @@ class App extends React.Component {
 
   async componentDidMount() {
     let nowPlayingMovies = await movieApi.getNowPlaying();
+    let topRatedMovies = await movieApi.getTopRated();
     this.setState({
       nowPlayingMovies: nowPlayingMovies,
+      topRatedMovies: topRatedMovies
     });
     console.log(this.state.nowPlayingMovies);
   }
@@ -45,8 +49,13 @@ class App extends React.Component {
         <div className="container">
           <NavBar user={this.state.user} handleLogout={this.handleLogout} />
           <Switch>
+            {/* movies now playing */}
             <Route exact path='/' render={() => {
-              return (<MovieList nowPlayingMovies={this.state.nowPlayingMovies} />)
+              return (<MovieList movies={this.state.nowPlayingMovies} />)
+            }} />
+            {/* top rated movies */}
+            <Route exact path='/top_rated' render={() => {
+              return (<TopMovies movies={this.state.topRatedMovies} />)
             }} />
             <Route exact path='/movie/:id' render={(props) => {
               return (<Movie id={props.match.params.id} />)

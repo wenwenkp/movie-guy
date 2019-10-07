@@ -57,7 +57,7 @@ class NavBar extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <Link to='/'><span className="nav-link">Most Popular</span></Link>
+                            <Link to='/top_rated'><span className="nav-link">Top Rated</span></Link>
                         </li>
                         {nav}
                     </ul>
