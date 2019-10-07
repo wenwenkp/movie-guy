@@ -17,15 +17,15 @@ async function getNowPlaying() {
     let result = await fetch(nowPlayingUrl, { mode: 'cors' }).then(response => response.json());
     let nowPlayingMovies = result.results;
 
-    let pages = 10;
-
-    if(result.total_pages < 10) pages = result.total_pages;
+    let pages = 5;
+    if(result.total_pages < pages) pages = result.total_pages;
     for(let i = 2; i <= pages; i++){
         let nextPageUrl = nowPlayingUrl + `&page=${i}`;
     
         let content = await fetch(nextPageUrl, {mode: 'cors'}).then(response => response.json());
         nowPlayingMovies = nowPlayingMovies.concat(content.results);
     }
+
     let nowPlaying = nowPlayingMovies.map((movie)=>{
         if(movie.poster_path !== null){
             movie.poster_path = imageBaseUrl + movie.poster_path;
