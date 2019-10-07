@@ -4,9 +4,8 @@
 // const api = dotenv
 // console.log(typeof config, config) // object { BASIC : 'basic' }
 
-// const API_KEY = process.env.REACT_APP_API_KEY;
-const API_KEY='90ce4aaf41910d53cce3f11e3053992f';
-console.log(API_KEY);
+const API_KEY = process.env.REACT_APP_API_KEY;
+// const API_KEY='90ce4aaf41910d53cce3f11e3053992f';
 
 
 const apiBaseUrl = 'http://api.themoviedb.org/3';
