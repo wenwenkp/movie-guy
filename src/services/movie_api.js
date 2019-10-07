@@ -1,6 +1,6 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-const apiBaseUrl = 'httpsx://api.themoviedb.org/3';
+const apiBaseUrl = 'https://api.themoviedb.org/3';
 const nowPlayingUrl = `${apiBaseUrl}/movie/now_playing?api_key=${API_KEY}`;
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
