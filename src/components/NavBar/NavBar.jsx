@@ -32,9 +32,6 @@ const NavBar = (props) => {
                     <li className="nav-item">
                         <Link to='/'><span className="nav-link">Most Popular</span></Link>
                     </li>
-                    <li className="nav-item">
-                        <Link to='/'><span className="nav-link">Current Playing</span></Link>
-                    </li>
                     {nav}
                 </ul>
                 <form className="form-inline my-2 my-lg-0">
