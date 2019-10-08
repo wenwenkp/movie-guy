@@ -3,9 +3,21 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const apiBaseUrl = 'https://api.themoviedb.org/3';
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
-async function getMovies(type) {
+async function getMovies(type, query='') {
     let choice = type;
-    const movieUrl = `${apiBaseUrl}/movie/${choice}?api_key=${API_KEY}`;
+    // let query = input;
+    let movieUrl = '';
+
+    if(choice === 'search'){
+        movieUrl = `${apiBaseUrl}/search/movie?api_key=${API_KEY}&query=${query}`;
+    }else{
+        movieUrl = `${apiBaseUrl}/movie/${choice}?api_key=${API_KEY}`;
+    }
+    console.log(movieUrl);
+
+    // let result = await fetch(searchUrl, {mode: 'cors'}).then(response => response.json());
+    // return result;
+
     let result = await fetch(movieUrl, { mode: 'cors' }).then(response => response.json());
     let movies = result.results;
     let pages = 5;
@@ -44,13 +56,14 @@ function getFavMovies(arr){
     return result;
 }
 
-async function searchMovie(input) {
-    let query = input;
-    const searchUrl = `${apiBaseUrl}/search/movie?api_key=${API_KEY}&query=${query}`;
-    console.log(searchUrl);
-    let result = await fetch(searchUrl, {mode: 'cors'}).then(response => response.json());
-    return result;
-}
+// async function searchMovie(input) {
+//     let query = input;
+//     const searchUrl = `${apiBaseUrl}/search/movie?api_key=${API_KEY}&query=${query}`;
+//     console.log(searchUrl);
+//     let result = await fetch(searchUrl, {mode: 'cors'}).then(response => response.json());
+
+//     return result;
+// }
 
 
 
@@ -58,5 +71,5 @@ export default {
     getMovies,
     getMovie,
     getFavMovies,
-    searchMovie,
+    // searchMovie,
 };

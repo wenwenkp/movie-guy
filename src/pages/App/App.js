@@ -60,7 +60,7 @@ class App extends React.Component {
     // e.preventDefault();
 
       console.log(this.state.keyword)
-      let result = await movieApi.searchMovie(this.state.keyword);
+      let result = await movieApi.getMovies('search', this.state.keyword);
       console.log(result);
       // this.props.history.push(`/search/${this.state.keyword}`);
       this.setState({
