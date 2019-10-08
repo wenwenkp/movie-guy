@@ -16,6 +16,7 @@ class App extends React.Component {
     this.state = {
       topRatedMovies: [],
       nowPlayingMovies: [],
+      popularMovies:[],
       user: userService.getUser()
     };
   }
@@ -23,9 +24,11 @@ class App extends React.Component {
   async componentDidMount() {
     let top_rated = await movieApi.getMovies('top_rated');
     let now_playing = await movieApi.getMovies('now_playing');
+    let popular = await movieApi.getMovies('popular');
     this.setState({
       topRatedMovies: top_rated,
-      nowPlayingMovies: now_playing
+      nowPlayingMovies: now_playing,
+      popularMovies: popular
     });
   }
 
@@ -56,6 +59,9 @@ class App extends React.Component {
             }} />
             <Route exact path='/movies/top_rated' render={() => {
               return (<MovieList movies={this.state.topRatedMovies} />)
+            }} />
+            <Route exact path='/movies/popular' render={() => {
+              return (<MovieList movies={this.state.popularMovies} />)
             }} />
             <Route exact path='/movie/:id' render={(props) => {
               return (<Movie id={props.match.params.id} />)

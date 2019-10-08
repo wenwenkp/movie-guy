@@ -62,6 +62,9 @@ class NavBar extends React.Component {
                         <li className="nav-item">
                             <Link to='/movies/now_playing'><span className="nav-link">Now Playing</span></Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to='/movies/popular'><span className="nav-link">Popular</span></Link>
+                        </li>
                         {nav}
                     </ul>
                     <form className="form-inline my-2 my-lg-0" >
