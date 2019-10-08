@@ -2,6 +2,7 @@ const User = require('../models/user');
 
 module.exports = {
     addMovie,
+    removeMovie,
 }
 
 async function addMovie(req, res){
@@ -12,4 +13,16 @@ async function addMovie(req, res){
     let updatedUser = await user.save();
     return res.json(updatedUser);
 
+}
+async function removeMovie(req, res){
+    console.log(req.body.id);
+    let user = await User.findById(req.user._id);
+    for(let i = 0; i < user.favMovie.length; i++){
+        if(user.favMovie[i].id === req.body.id){
+            user.favMovie.splice(i, 1);
+            breake;
+        }
+    }
+    let updatedUser = await user.save();
+    return res.json(updatedUser);
 }

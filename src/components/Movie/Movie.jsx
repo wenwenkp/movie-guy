@@ -55,7 +55,8 @@ class Movie extends React.Component {
                         }
                         <p>overview: {this.state.movie.overview}</p>
                         {/* {this.props.user ? this.props.user.favMovie : null} */}
-                        {this.props.user ? <button onClick={()=>{this.props.handleFavMovie(this.state.movie)}}>Add to Favourite</button> : null}
+                        {this.props.user ? <button onClick={()=>{this.props.addFavMovie(this.state.movie)}}>Add to Favourite</button> : null}
+                        {this.props.user ? <button onClick={()=>{this.props.removeFavMovie(this.state.movie)}}>Unsave</button> : null}
                     </div>
                     :
                     <h1>Loading...</h1>

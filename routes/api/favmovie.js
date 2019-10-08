@@ -8,6 +8,7 @@ router.use(require('../../config/auth'));
 // router.get('/', ordersCtrl.index);
 // router.post('/', ordersCtrl.create);
 router.put('/add/:id', moviesCtrl.addMovie);
+router.put('/remove/:id', moviesCtrl.removeMovie);
 
 /*----- Helper Functions -----*/
 function checkAuth(req, res, next) {
