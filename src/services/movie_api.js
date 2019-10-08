@@ -33,6 +33,17 @@ async function getMovie(id) {
     return movie;
 };
 
+function getFavMovies(arr){
+    let result = arr.map( async (id)=>{
+        const movieUrl = `${apiBaseUrl}/movie/${id}?api_key=${API_KEY}`;
+        let temp = await fetch(movieUrl, {mode : 'cors'}).then(response => response.json());
+        temp.poster_path = imageBaseUrl + temp.poster_path;
+        console.log(temp);
+        return temp;
+    });
+    return result;
+}
+
 async function searchMovie(input) {
     let query = input;
     const searchUrl = `${apiBaseUrl}/search/company?api_key=${API_KEY}&query=${query}`;
@@ -42,8 +53,11 @@ async function searchMovie(input) {
     return result;
 }
 
+
+
 export default {
     getMovies,
     getMovie,
+    getFavMovies,
     searchMovie,
 };

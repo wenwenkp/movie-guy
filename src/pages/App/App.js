@@ -20,7 +20,7 @@ class App extends React.Component {
       topRatedMovies: [],
       nowPlayingMovies: [],
       popularMovies:[],
-      user: userService.getUser()
+      user: userService.getUser(),
     };
   }
 
