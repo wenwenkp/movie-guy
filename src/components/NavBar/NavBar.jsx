@@ -57,7 +57,10 @@ class NavBar extends React.Component {
                 <div className="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                         <li className="nav-item">
-                            <Link to='/top_rated'><span className="nav-link">Top Rated</span></Link>
+                            <Link to='/movies'><span className="nav-link" onClick={()=>this.props.handleList('top_rated')}>Top Rated</span></Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to='/movies'><span className="nav-link" onClick={()=>this.props.handleList('now_playing')}>Now Playing</span></Link>
                         </li>
                         {nav}
                     </ul>
