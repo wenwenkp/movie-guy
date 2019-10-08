@@ -1,11 +1,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import NavBar from '../../components/NavBar/NavBar';
 import MovieList from '../../components/MovieList/MovieList';
 import Movie from '../../components/Movie/Movie';
 import Search from '../../components/Search/Search';
+import Profile from '../../components/Profile/Profile';
 import SignupPage from '../../pages/SignupPage/SignupPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
+
 import userService from '../../utils/userService';
 import movieApi from '../../services/movie_api';
 
@@ -68,6 +71,9 @@ class App extends React.Component {
             }} />
             <Route exact path='/search/:input' render={(props) => {
               return (<Search input={props.match.params.input} />)
+            }} />
+            <Route exact path='/profile' render={() => {
+              return (<Profile user={this.state.user}/>)
             }} />
             <Route exact path='/signup' render={({ history }) =>
               <SignupPage

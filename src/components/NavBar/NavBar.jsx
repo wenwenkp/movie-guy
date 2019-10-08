@@ -33,7 +33,7 @@ class NavBar extends React.Component {
         let nav = this.props.user ?
             <>
                 <li className="nav-item">
-                    <Link to='/'><span className="nav-link">Profile</span></Link>
+                    <Link to='/profile'><span className="nav-link">Profile</span></Link>
                 </li>
                 <li className="nav-item">
                     <Link to=''><span className="nav-link" onClick={this.props.handleLogout}>Log Out</span></Link>
@@ -68,6 +68,7 @@ class NavBar extends React.Component {
                         {nav}
                     </ul>
                     <form className="form-inline my-2 my-lg-0" >
+                        
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.state.search} onChange={this.handleChange} name="search" />
                         <Link to={`/search/${this.state.search}`}><span className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</span></Link>
                     </form>
