@@ -10,6 +10,7 @@ import LoginPage from '../../pages/LoginPage/LoginPage';
 
 import userService from '../../utils/userService';
 import movieApi from '../../services/movie_api';
+import favMovie from '../../services/user_api';
 
 class App extends React.Component {
 
@@ -20,6 +21,7 @@ class App extends React.Component {
       nowPlayingMovies: [],
       popularMovies: [],
       user: userService.getUser(),
+      test: {},
       keyword: '',
       searchResult: [],
     };
@@ -33,8 +35,17 @@ class App extends React.Component {
     this.setState({
       topRatedMovies: top_rated,
       nowPlayingMovies: now_playing,
-      popularMovies: popular
+      popularMovies: popular,
+      test: this.getUser()
     });
+  }
+
+  getUser(){
+    if(this.state.user){
+      return this.state.user;
+    }else{
+      return null;
+    }
   }
 
   popularMovies = async () => {
@@ -78,6 +89,21 @@ class App extends React.Component {
     // return <Redirect to='/search' />
   }
 
+  handleFavMovie = async (movie) => {
+    console.log('thi is id: ', movie);
+    let msg = await favMovie.updateFavMovie(movie);
+    console.log(msg);
+    // const updatedPuppy = await puppyAPI.update(updatedPupData);
+    // const newPuppiesArray = this.state.puppies.map(p => 
+    //   p._id === updatedPuppy._id ? updatedPuppy : p
+    // );
+    // this.setState(
+    //   {puppies: newPuppiesArray},
+    //   // Using cb to wait for state to update before rerouting
+    //   () => this.props.history.push('/')
+    // );
+  }
+
   render() {
     return (
       <Router>
@@ -101,13 +127,13 @@ class App extends React.Component {
               return (<MovieList movies={this.state.topRatedMovies} />)
             }} />
             <Route exact path='/movies/popular' render={() => {
-              return (<MovieList api={this.popularMovies} movies={this.state.popularMovies} />)
+              return (<MovieList movies={this.state.popularMovies} />)
             }} />
             <Route exact path='/search/:keyword' render={(props) => {
               return (<MovieList movies={this.state.searchResult} />)
             }} />
             <Route exact path='/movie/:id' render={(props) => {
-              return (<Movie id={props.match.params.id} />)
+              return (<Movie id={props.match.params.id} user={this.state.user} handleFavMovie={this.handleFavMovie}/>)
             }} />
 
             <Route exact path='/profile' render={() => {
