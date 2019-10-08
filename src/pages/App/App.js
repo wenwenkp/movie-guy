@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import MovieList from '../../components/MovieList/MovieList';
 import Movie from '../../components/Movie/Movie';
-import Search from '../../components/Search/Search';
 import Profile from '../../components/Profile/Profile';
 import SignupPage from '../../pages/SignupPage/SignupPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
@@ -30,9 +29,17 @@ class App extends React.Component {
     let top_rated = await movieApi.getMovies('top_rated');
     let now_playing = await movieApi.getMovies('now_playing');
     let popular = await movieApi.getMovies('popular');
+
     this.setState({
       topRatedMovies: top_rated,
       nowPlayingMovies: now_playing,
+      popularMovies: popular
+    });
+  }
+
+  popularMovies = async () => {
+    let popular = await movieApi.getMovies('popular');
+    this.setState({
       popularMovies: popular
     });
   }
@@ -59,15 +66,17 @@ class App extends React.Component {
   handleSearch = async (e) => {
     // e.preventDefault();
 
-      console.log(this.state.keyword)
-      let result = await movieApi.getMovies('search', this.state.keyword);
-      console.log(result);
-      // this.props.history.push(`/search/${this.state.keyword}`);
-      this.setState({
-        searchResult: result,
-      });
-      // return <Redirect to='/search' />
-    }
+    console.log(this.state.keyword)
+    let result = await movieApi.searchMovie(this.state.keyword);
+
+    console.log(result);
+    // this.props.history.push(`/search/${this.state.keyword}`);
+    this.setState({
+      searchResult: result,
+      keyword: '',
+    });
+    // return <Redirect to='/search' />
+  }
 
   render() {
     return (
@@ -92,14 +101,15 @@ class App extends React.Component {
               return (<MovieList movies={this.state.topRatedMovies} />)
             }} />
             <Route exact path='/movies/popular' render={() => {
-              return (<MovieList movies={this.state.popularMovies} />)
+              return (<MovieList api={this.popularMovies} movies={this.state.popularMovies} />)
+            }} />
+            <Route exact path='/search/:keyword' render={(props) => {
+              return (<MovieList movies={this.state.searchResult} />)
             }} />
             <Route exact path='/movie/:id' render={(props) => {
               return (<Movie id={props.match.params.id} />)
             }} />
-            <Route exact path='/search/:keyword' render={(props) => {
-              return (<Search searchResult={this.state.searchResult} />)
-            }} />
+
             <Route exact path='/profile' render={() => {
               return (<Profile user={this.state.user} />)
             }} />
