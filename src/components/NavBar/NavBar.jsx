@@ -1,42 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-class NavBar extends React.Component {
+const NavBar = (props) => {
 
-    state = {
-        search: ''
-    }
-
-    // handleChange = (e) => {
-    //     // this.props.updateMessage('');
-    //     this.setState({
-    //     //     // Using ES2015 Computed Property Names
-    //         [e.target.name]: e.target.value
-    //     });
-    // }
-
-    handleSubmit = async (e) => {
-        e.preventDefault();
-        // try {
-        //     await userService.signup(this.state);
-        //     // Let <App> know a user has signed up!
-        //     this.props.handleSignupOrLogin();
-        //     // Successfully signed up - show GamePage
-        //     this.props.history.push('/');
-        // } catch (err) {
-        //     // Invalid user data (probably duplicate email)
-        //     this.props.updateMessage(err.message);
-        // }
-    }
-
-    render() {
-        let nav = this.props.user ?
+        let nav = props.user ?
             <>
                 <li className="nav-item">
                     <Link to='/profile'><span className="nav-link">Profile</span></Link>
                 </li>
                 <li className="nav-item">
-                    <Link to=''><span className="nav-link" onClick={this.props.handleLogout}>Log Out</span></Link>
+                    <Link to=''><span className="nav-link" onClick={props.handleLogout}>Log Out</span></Link>
                 </li>
             </>
             :
@@ -67,15 +40,14 @@ class NavBar extends React.Component {
                         </li>
                         {nav}
                     </ul>
-                    <form className="form-inline my-2 my-lg-0" >
+                    <form className="form-inline my-2 my-lg-0">
                         
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.props.keyword} onChange={(e)=>this.props.handleChange(e)} name="keyword" />
-                        <Link to={`/search/${this.state.search}`}><span className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</span></Link>
+                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={props.keyword} onChange={(e)=>props.handleChange(e)} name="keyword" />
+                        <Link to={`/search/${props.keyword}`}><span onClick={(e)=>{props.handleSearch(e)}} className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</span></Link>
                     </form>
                 </div>
             </nav>
         )
-    }
 }
 
 export default NavBar;

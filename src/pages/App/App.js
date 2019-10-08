@@ -19,9 +19,10 @@ class App extends React.Component {
     this.state = {
       topRatedMovies: [],
       nowPlayingMovies: [],
-      popularMovies:[],
+      popularMovies: [],
       user: userService.getUser(),
-      keyword:'',
+      keyword: '',
+      searchResult: [],
     };
   }
 
@@ -50,20 +51,34 @@ class App extends React.Component {
   handleChange = (e) => {
     // this.props.updateMessage('');
     this.setState({
-    //     // Using ES2015 Computed Property Names
-        [e.target.name]: e.target.value
+      //     // Using ES2015 Computed Property Names
+      [e.target.name]: e.target.value
     });
-}
+  }
+
+  handleSearch = async (e) => {
+    // e.preventDefault();
+
+      console.log(this.state.keyword)
+      let result = await movieApi.searchMovie(this.state.keyword);
+      console.log(result);
+      // this.props.history.push(`/search/${this.state.keyword}`);
+      this.setState({
+        searchResult: result,
+      });
+      // return <Redirect to='/search' />
+    }
 
   render() {
     return (
       <Router>
         <div className="container">
-          <NavBar 
+          <NavBar
             user={this.state.user}
             keyword={this.state.keyword}
-            handleLogout={this.handleLogout} 
-            handleChange={this.handleChange}/>
+            handleLogout={this.handleLogout}
+            handleSearch={this.handleSearch}
+            handleChange={this.handleChange} />
           <Switch>
             <Route exact path='/' render={() => {
               return <div>
@@ -82,11 +97,11 @@ class App extends React.Component {
             <Route exact path='/movie/:id' render={(props) => {
               return (<Movie id={props.match.params.id} />)
             }} />
-            <Route exact path='/search/:input' render={(props) => {
-              return (<Search input={props.match.params.input} />)
+            <Route exact path='/search/:keyword' render={(props) => {
+              return (<Search searchResult={this.state.searchResult} />)
             }} />
             <Route exact path='/profile' render={() => {
-              return (<Profile user={this.state.user}/>)
+              return (<Profile user={this.state.user} />)
             }} />
             <Route exact path='/signup' render={({ history }) =>
               <SignupPage
