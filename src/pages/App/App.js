@@ -20,7 +20,7 @@ class App extends React.Component {
     };
   }
 
-  async componentDidMount(){
+  async componentDidMount() {
     let top_rated = await movieApi.getMovies('top_rated');
     let now_playing = await movieApi.getMovies('now_playing');
     this.setState({
@@ -37,14 +37,14 @@ class App extends React.Component {
 
   handleSignupOrLogin = () => {
     console.log('handlesinguporlogin');
-    this.setState({user: userService.getUser()});
+    this.setState({ user: userService.getUser() });
   }
 
   render() {
     return (
       <Router>
         <div className="container">
-          <NavBar user={this.state.user} handleLogout={this.handleLogout} handleList={this.handleList}/>
+          <NavBar user={this.state.user} handleLogout={this.handleLogout} />
           <Switch>
             <Route exact path='/' render={() => {
               return <div>
