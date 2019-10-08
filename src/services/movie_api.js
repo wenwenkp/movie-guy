@@ -46,7 +46,7 @@ function getFavMovies(arr){
 
 async function searchMovie(input) {
     let query = input;
-    const searchUrl = `${apiBaseUrl}/search/company?api_key=${API_KEY}&query=${query}`;
+    const searchUrl = `${apiBaseUrl}/search/movie?api_key=${API_KEY}&query=${query}`;
     console.log(searchUrl);
     let result = await fetch(searchUrl, {mode: 'cors'}).then(response => response.json());
     console.log(result);
