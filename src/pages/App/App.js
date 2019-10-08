@@ -21,6 +21,7 @@ class App extends React.Component {
       nowPlayingMovies: [],
       popularMovies:[],
       user: userService.getUser(),
+      keyword:'',
     };
   }
 
@@ -46,11 +47,23 @@ class App extends React.Component {
     this.setState({ user: userService.getUser() });
   }
 
+  handleChange = (e) => {
+    // this.props.updateMessage('');
+    this.setState({
+    //     // Using ES2015 Computed Property Names
+        [e.target.name]: e.target.value
+    });
+}
+
   render() {
     return (
       <Router>
         <div className="container">
-          <NavBar user={this.state.user} handleLogout={this.handleLogout} />
+          <NavBar 
+            user={this.state.user}
+            keyword={this.state.keyword}
+            handleLogout={this.handleLogout} 
+            handleChange={this.handleChange}/>
           <Switch>
             <Route exact path='/' render={() => {
               return <div>

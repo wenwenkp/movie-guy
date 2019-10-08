@@ -7,13 +7,13 @@ class NavBar extends React.Component {
         search: ''
     }
 
-    handleChange = (e) => {
-        // this.props.updateMessage('');
-        this.setState({
-        //     // Using ES2015 Computed Property Names
-            [e.target.name]: e.target.value
-        });
-    }
+    // handleChange = (e) => {
+    //     // this.props.updateMessage('');
+    //     this.setState({
+    //     //     // Using ES2015 Computed Property Names
+    //         [e.target.name]: e.target.value
+    //     });
+    // }
 
     handleSubmit = async (e) => {
         e.preventDefault();
@@ -69,7 +69,7 @@ class NavBar extends React.Component {
                     </ul>
                     <form className="form-inline my-2 my-lg-0" >
                         
-                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.state.search} onChange={this.handleChange} name="search" />
+                        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.props.keyword} onChange={(e)=>this.props.handleChange(e)} name="keyword" />
                         <Link to={`/search/${this.state.search}`}><span className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</span></Link>
                     </form>
                 </div>

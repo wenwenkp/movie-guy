@@ -49,7 +49,6 @@ async function searchMovie(input) {
     const searchUrl = `${apiBaseUrl}/search/movie?api_key=${API_KEY}&query=${query}`;
     console.log(searchUrl);
     let result = await fetch(searchUrl, {mode: 'cors'}).then(response => response.json());
-    console.log(result);
     return result;
 }
 

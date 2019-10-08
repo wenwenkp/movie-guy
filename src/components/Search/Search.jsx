@@ -9,15 +9,14 @@ class Search extends React.Component {
 
     async componentDidUpdate(){
         if(this.state.keyword !== this.props.input){
-            console.log(this.props.input)
+            console.log('update', this.props.input)
             let result = await movieApi.searchMovie(this.props.input);
-            console.log(result);
+            console.log('update', result);
             this.setState({
                 movies: result,
                 keyword: this.props.input,
             });
         }
-        
     }
 
     async componentDidMount() {
