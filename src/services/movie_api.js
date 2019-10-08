@@ -1,14 +1,11 @@
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 const apiBaseUrl = 'https://api.themoviedb.org/3';
-const nowPlayingUrl = `${apiBaseUrl}/movie/now_playing?api_key=${API_KEY}`;
-const topRatedUrl = `${apiBaseUrl}/movie/top_rated?api_key=${API_KEY}`;
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
 async function getMovies(type) {
     let choice = type;
     const movieUrl = `${apiBaseUrl}/movie/${choice}?api_key=${API_KEY}`;
-    console.log(movieUrl);
     let result = await fetch(movieUrl, { mode: 'cors' }).then(response => response.json());
     let movies = result.results;
     let pages = 5;
@@ -27,27 +24,6 @@ async function getMovies(type) {
     });
     return movieList;
 };
-
-// async function getTopRated() {
-//     let result = await fetch(topRatedUrl, { mode: 'cors' }).then(response => response.json());
-//     console.log(result);
-//     let topRatedMovies = result.results;
-//     let pages = 5;
-//     if(result.total_pages < pages) pages = result.total_pages;
-//     for(let i = 2; i <= pages; i++){
-//         let nextPageUrl = topRatedUrl + `&page=${i}`;
-    
-//         let content = await fetch(nextPageUrl, {mode: 'cors'}).then(response => response.json());
-//         topRatedMovies = topRatedMovies.concat(content.results);
-//     }
-//     let topRated = topRatedMovies.map((movie)=>{
-//         if(movie.poster_path !== null){
-//             movie.poster_path = imageBaseUrl + movie.poster_path;
-//         }
-//         return movie;    
-//     });
-//     return topRated;
-// };
 
 async function getMovie(id) {
     let movieId = id;

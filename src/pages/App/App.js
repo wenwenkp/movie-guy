@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import MovieList from '../../components/MovieList/MovieList';
-// import TopMovies from '../../components/TopMovies/TopMovies';
 import Movie from '../../components/Movie/Movie';
 import Search from '../../components/Search/Search';
 import SignupPage from '../../pages/SignupPage/SignupPage';
@@ -15,23 +14,20 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
+      topRatedMovies: [],
       nowPlayingMovies: [],
-      // topRatedMovies: [],
-      // Initialize user if there's a token, otherwise null
       user: userService.getUser()
     };
   }
 
-  // async componentDidMount() {
-  //   // let nowPlayingMovies = await movieApi.getNowPlaying();
-  //   // let topRatedMovies = await movieApi.getTopRated();
-  //   this.setState({
-  //     nowPlayingMovies: nowPlayingMovies,
-  //     // topRatedMovies: topRatedMovies
-  //   });
-  //   console.log(this.state.nowPlayingMovies);
-  // }
+  async componentDidMount(){
+    let top_rated = await movieApi.getMovies('top_rated');
+    let now_playing = await movieApi.getMovies('now_playing');
+    this.setState({
+      topRatedMovies: top_rated,
+      nowPlayingMovies: now_playing
+    });
+  }
 
   handleLogout = () => {
     userService.logout();
@@ -44,31 +40,22 @@ class App extends React.Component {
     this.setState({user: userService.getUser()});
   }
 
-  handleList = async (type) => {
-    console.log(type);
-    let movies = await movieApi.getMovies(type);
-    this.setState({
-      // nowPlayingMovies: nowPlayingMovies,
-      movies: movies
-    });
-  }
-
   render() {
     return (
       <Router>
         <div className="container">
           <NavBar user={this.state.user} handleLogout={this.handleLogout} handleList={this.handleList}/>
           <Switch>
-            {/* movies now playing */}
             <Route exact path='/' render={() => {
-              // return (<MovieList movies={this.state.nowPlayingMovies} />)
               return <div>
                 home page
               </div>
             }} />
-            {/* top rated movies */}
-            <Route exact path='/movies' render={() => {
-              return (<MovieList movies={this.state.movies} />)
+            <Route exact path='/movies/now_playing' render={() => {
+              return (<MovieList movies={this.state.nowPlayingMovies} />)
+            }} />
+            <Route exact path='/movies/top_rated' render={() => {
+              return (<MovieList movies={this.state.topRatedMovies} />)
             }} />
             <Route exact path='/movie/:id' render={(props) => {
               return (<Movie id={props.match.params.id} />)

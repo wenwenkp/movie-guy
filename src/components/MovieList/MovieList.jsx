@@ -5,6 +5,7 @@ const MovieList = (props) => {
 
     return (
         <div className='container'>
+            {props.movies ?
             <div className='row'>
                 <div className='col-sm-12'>
                     <h1>Movies Now Playing:</h1>
@@ -23,6 +24,7 @@ const MovieList = (props) => {
                     })}
                 </div>
             </div>
+            : <div>'Loading...'</div>}
         </div>
     )
 }
