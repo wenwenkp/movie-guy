@@ -21,7 +21,6 @@ class App extends React.Component {
       nowPlayingMovies: [],
       popularMovies: [],
       user: userService.getUser(),
-      test: {},
       keyword: '',
       searchResult: [],
     };

@@ -3,20 +3,6 @@ const bcrypt = require('bcrypt');
 
 const SALT_ROUNDS = 6;
 
-const commentSchema = new mongoose.Schema({
-    movie: {
-        required: true,
-        type: String,
-    },
-    content: {
-        required: true,
-        type: String,
-    },
-}, {
-    timestamps: true,
-}
-);
-
 const userSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -28,10 +14,7 @@ const userSchema = new mongoose.Schema({
         unique: true,
     },
     password: String,
-    description: String,
-    comments: [commentSchema],
     favMovie: [],
-    favPerformer: [],
 }, {
     timestamps: true,
 }
