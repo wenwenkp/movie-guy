@@ -6,6 +6,7 @@ module.exports = {
 }
 
 async function addMovie(req, res){
+    console.log('here');
     let user = await User.findById(req.user._id);
     user.favMovie.push(req.body);
     let updatedUser = await user.save();

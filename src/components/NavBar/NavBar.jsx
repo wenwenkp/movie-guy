@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
-
+    console.log('navabar');
         let nav = props.user ?
             <>
                 <li className="nav-item">

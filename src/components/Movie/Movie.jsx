@@ -5,6 +5,7 @@ class Movie extends React.Component {
 
     state = {
         movie: {},
+        myMovieIds: [],
     }
 
     async componentDidMount() {
@@ -13,12 +14,20 @@ class Movie extends React.Component {
             movie: result,
         });
         console.log(this.state.movie);
+        console.log(typeof this.state.movie.id);
+        if(this.props.user){
+            let movies = this.props.user.favMovie;
+            console.log(movies);
+        }else{
+            console.log('no');
+        }
     }
 
     render() {
         let languages = this.state.movie.spoken_languages;
         let genres = this.state.movie.genres;
         let companies = this.state.movie.production_companies;
+        console.log(123)
         return (
             <div>
                 {this.state.movie ?
