@@ -35,16 +35,7 @@ class App extends React.Component {
       topRatedMovies: top_rated,
       nowPlayingMovies: now_playing,
       popularMovies: popular,
-      test: this.getUser()
     });
-  }
-
-  getUser(){
-    if(this.state.user){
-      return this.state.user;
-    }else{
-      return null;
-    }
   }
 
   popularMovies = async () => {
@@ -98,9 +89,10 @@ class App extends React.Component {
   }
 
   removeFavMovie = async (movie) => {
-    console.log('thi is id: ', movie);
+    console.log('thi is remove: ', movie);
     let updatedUser = await userApi.removeFavMovie(movie);
     console.log(updatedUser);
+    console.log('finished removing');
     this.setState({
       user: updatedUser,
     });

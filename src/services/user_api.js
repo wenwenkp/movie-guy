@@ -2,7 +2,7 @@ import tokenService from '../utils/tokenService';
 
 const BASE_URL = '/api/favmovie'; 
 
-export function addFavMovie(movie) {
+function addFavMovie(movie) {
     return fetch(`${BASE_URL}/add/${movie._id}`, {
       method: 'PUT',
       headers: {
@@ -12,8 +12,11 @@ export function addFavMovie(movie) {
       body: JSON.stringify(movie)
     }).then(res => res.json());
   }
-export function removeFavMovie(movie) {
-    return fetch(`${BASE_URL}/remove/${movie._id}`, {
+function removeFavMovie(movie) {
+  console.log('starting to remove...')
+  console.log(movie);
+  console.log(`${BASE_URL}/remove`);
+    return fetch(`${BASE_URL}/remove`, {
       method: 'PUT',
       headers: {
           'content-type': 'application/json',
