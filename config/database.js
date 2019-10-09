@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-console.log(process.env.REACT_APP_API_KEY)
 mongoose.connect(process.env.DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
