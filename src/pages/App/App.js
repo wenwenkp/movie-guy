@@ -17,24 +17,32 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      topRatedMovies: [],
-      nowPlayingMovies: [],
-      popularMovies: [],
+      // topRatedMovies: [],
+      // nowPlayingMovies: [],
+      // popularMovies: [],
+      movies: [],
       user: userService.getUser(),
       keyword: '',
       searchResult: [],
     };
   }
 
-  async componentDidMount() {
-    let top_rated = await movieApi.getMovies('top_rated');
-    let now_playing = await movieApi.getMovies('now_playing');
-    let popular = await movieApi.getMovies('popular');
+  // async componentDidMount() {
+  //   let top_rated = await movieApi.getMovies('top_rated');
+  //   let now_playing = await movieApi.getMovies('now_playing');
+  //   let popular = await movieApi.getMovies('popular');
+
+  //   this.setState({
+  //     topRatedMovies: top_rated,
+  //     nowPlayingMovies: now_playing,
+  //     popularMovies: popular,
+  //   });
+  // }
+  async handleFetch(type) {
+    let movies = await movieApi.getMovies(type);
 
     this.setState({
-      topRatedMovies: top_rated,
-      nowPlayingMovies: now_playing,
-      popularMovies: popular,
+      movies,
     });
   }
 
@@ -124,7 +132,7 @@ class App extends React.Component {
                 home page
               </div>
             }} />
-            <Route exact path='/movies/now_playing' render={() => {
+            {/* <Route exact path='/movies/now_playing' render={() => {
               return (<MovieList movies={this.state.nowPlayingMovies} />)
             }} />
             <Route exact path='/movies/top_rated' render={() => {
@@ -132,8 +140,15 @@ class App extends React.Component {
             }} />
             <Route exact path='/movies/popular' render={() => {
               return (<MovieList movies={this.state.popularMovies} />)
+            }} /> */}
+            <Route exact path='/movies/:type' render={(props) => {
+              this.handleFetch(props.match.params.type);
+              
+              return (
+                <MovieList movies={this.state.movies} />
+              )
             }} />
-            <Route exact path='/search/:keyword' render={(props) => {
+            <Route exact path='/search/:keyword' render={() => {
               return (<MovieList movies={this.state.searchResult} />)
             }} />
             <Route exact path='/movie/:id' render={(props) => {
