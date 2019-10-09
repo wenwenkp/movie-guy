@@ -1,5 +1,5 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 
     const Profile = (props) => {
       
@@ -14,7 +14,9 @@ import {Redirect} from 'react-router-dom';
                     {props.user.favMovie.map((movie, idx)=>{
                         return (
                             <div key={idx}>
-                                <img src={movie.poster_path} alt={movie.title}></img>
+                                <Link to={`/movie/${movie.id}`}>
+                                    <img src={movie.poster_path} alt={movie.title}></img>
+                                </Link>
                             </div>
                         )
                     })}
