@@ -5,22 +5,20 @@ class Movie extends React.Component {
 
     state = {
         movie: {},
-        myMovieIds: [],
+        // myMovieIds: [],
     }
 
     async componentDidMount() {
+        console.log(456);
+        // if(this.props.user){
+        //     let movies = this.props.user.favMovie;
+        //     console.log('movies');
+        // }
         let result = await movieApi.getMovie(this.props.id);
         this.setState({
             movie: result,
-        });
-        console.log(this.state.movie);
-        console.log(typeof this.state.movie.id);
-        if(this.props.user){
-            let movies = this.props.user.favMovie;
-            console.log(movies);
-        }else{
-            console.log('no');
-        }
+        }, ()=>{console.log(789);});
+        
     }
 
     render() {

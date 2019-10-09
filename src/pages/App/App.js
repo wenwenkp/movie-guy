@@ -23,20 +23,30 @@ class App extends React.Component {
       user: userService.getUser(),
       keyword: '',
       searchResult: [],
+      myMovies: this.getUserMovies(),
     };
   }
 
-  // async componentDidMount() {
-  //   let top_rated = await movieApi.getMovies('top_rated');
-  //   let now_playing = await movieApi.getMovies('now_playing');
-  //   let popular = await movieApi.getMovies('popular');
+//    componentDidMount() {
+// console.log('app did mount');
+//     this.setState({
+//       myMovies: this.getUserMovies(),
+//     });
+//   }
 
-  //   this.setState({
-  //     topRatedMovies: top_rated,
-  //     nowPlayingMovies: now_playing,
-  //     popularMovies: popular,
-  //   });
-  // }
+  async getUserMovies(){
+    try{
+      console.log(this.state.user);
+      let result = [];
+      if(this.state.user){
+        result = await userApi.getFavMovie();
+        // result = [1,2,3]
+      }
+      return result;
+    }catch(err){
+      console.log(err);
+    }
+  }
 
   handleLogout = () => {
     userService.logout();
@@ -66,21 +76,21 @@ class App extends React.Component {
 
   addFavMovie = async (movie) => {
     console.log('thi is id: ', movie);
-    let updatedUser = await userApi.addFavMovie(movie);
-    console.log(updatedUser);
+    let result = await userApi.addFavMovie(movie);
     this.setState({
-      user: updatedUser,
-    });
+      myMovies: result,
+    })
+    // this.handleSignupOrLogin();
   }
 
   removeFavMovie = async (movie) => {
     console.log('thi is remove: ', movie);
-    let updatedUser = await userApi.removeFavMovie(movie);
-    console.log(updatedUser);
-    console.log('finished removing');
-    this.setState({
-      user: updatedUser,
-    });
+    // let updatedUser = await userApi.removeFavMovie(movie);
+    // console.log(updatedUser);
+    // console.log('finished removing');
+    // this.setState({
+    //   user: updatedUser,
+    // });
   }
 
     // const updatedPuppy = await puppyAPI.update(updatedPupData);
