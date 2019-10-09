@@ -2,6 +2,9 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import NavBar from '../../components/NavBar/NavBar';
+import Popular from '../../components/Popular/Popular';
+import TopRated from '../../components/TopRated/TopRated';
+import NowPlaying from '../../components/NowPlaying/NowPlaying';
 import MovieList from '../../components/MovieList/MovieList';
 import Movie from '../../components/Movie/Movie';
 import Profile from '../../components/Profile/Profile';
@@ -17,10 +20,6 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      // topRatedMovies: [],
-      // nowPlayingMovies: [],
-      // popularMovies: [],
-      movies: [],
       user: userService.getUser(),
       keyword: '',
       searchResult: [],
@@ -38,20 +37,6 @@ class App extends React.Component {
   //     popularMovies: popular,
   //   });
   // }
-  async handleFetch(type) {
-    let movies = await movieApi.getMovies(type);
-
-    this.setState({
-      movies,
-    });
-  }
-
-  popularMovies = async () => {
-    let popular = await movieApi.getMovies('popular');
-    this.setState({
-      popularMovies: popular
-    });
-  }
 
   handleLogout = () => {
     userService.logout();
@@ -65,26 +50,18 @@ class App extends React.Component {
   }
 
   handleChange = (e) => {
-    // this.props.updateMessage('');
     this.setState({
-      //     // Using ES2015 Computed Property Names
       [e.target.name]: e.target.value
     });
   }
 
   handleSearch = async (e) => {
     // e.preventDefault();
-
-    console.log(this.state.keyword)
     let result = await movieApi.searchMovie(this.state.keyword);
-
-    console.log(result);
-    // this.props.history.push(`/search/${this.state.keyword}`);
     this.setState({
       searchResult: result,
       keyword: '',
     });
-    // return <Redirect to='/search' />
   }
 
   addFavMovie = async (movie) => {
@@ -132,21 +109,14 @@ class App extends React.Component {
                 home page
               </div>
             }} />
-            {/* <Route exact path='/movies/now_playing' render={() => {
-              return (<MovieList movies={this.state.nowPlayingMovies} />)
-            }} />
             <Route exact path='/movies/top_rated' render={() => {
-              return (<MovieList movies={this.state.topRatedMovies} />)
+              return (<TopRated />)
+            }} />
+            <Route exact path='/movies/now_playing' render={() => {
+              return (<NowPlaying />)
             }} />
             <Route exact path='/movies/popular' render={() => {
-              return (<MovieList movies={this.state.popularMovies} />)
-            }} /> */}
-            <Route exact path='/movies/:type' render={(props) => {
-              this.handleFetch(props.match.params.type);
-              
-              return (
-                <MovieList movies={this.state.movies} />
-              )
+              return (<Popular />)
             }} />
             <Route exact path='/search/:keyword' render={() => {
               return (<MovieList movies={this.state.searchResult} />)

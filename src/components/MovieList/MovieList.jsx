@@ -8,7 +8,7 @@ const MovieList = (props) => {
             {props.movies ?
             <div className='row'>
                 <div className='col-sm-12'>
-                    <h1>Movies Now Playing:</h1>
+                    <h1>{props.title}</h1>
                 </div>
                 <div className='col-sm-12'>
                     {props.movies.map((movie) => {
