@@ -8,6 +8,7 @@ import NowPlaying from '../../components/NowPlaying/NowPlaying';
 import MovieList from '../../components/MovieList/MovieList';
 import Movie from '../../components/Movie/Movie';
 import Profile from '../../components/Profile/Profile';
+
 import SignupPage from '../../pages/SignupPage/SignupPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
 
@@ -16,23 +17,16 @@ import movieApi from '../../services/movie_api';
 import userApi from '../../services/user_api';
 
 class App extends React.Component {
-
-  constructor() {
-    super();
-    this.state = {
+    state = {
       user: userService.getUser(),
       keyword: '',
       searchResult: [],
       myMovies: [],
     };
-  }
 
   async componentDidMount() {
-    console.log('app did mount');
     if (this.state.user) {
-      console.log('yes user');
       let result = await userApi.getFavMovie();
-      console.log('here is result', result);
       this.setState({
         myMovies: result,
       })
@@ -41,7 +35,6 @@ class App extends React.Component {
 
   handleLogout = () => {
     userService.logout();
-    console.log('user log out!')
     this.setState({ 
       user: null,
       myMovies: [],
@@ -49,15 +42,10 @@ class App extends React.Component {
   }
 
   handleSignupOrLogin = async () => {
-    console.log('handlesinguporlogin');
     let result = await userApi.getFavMovie();
-
     this.setState({
       user: userService.getUser(),
       myMovies: result,
-    }, () => {
-      console.log('forceupdate');
-      this.forceUpdate()
     });
   }
 
@@ -67,8 +55,7 @@ class App extends React.Component {
     });
   }
 
-  handleSearch = async (e) => {
-    // e.preventDefault();
+  handleSearch = async () => {
     let result = await movieApi.searchMovie(this.state.keyword);
     this.setState({
       searchResult: result,
@@ -78,46 +65,21 @@ class App extends React.Component {
 
   addFavMovie = async (movie) => {
     let result = await userApi.addFavMovie(movie);
-    console.log('this is after addfavmovie--------');
-    console.log(result);
     this.setState({
       myMovies: result,
     })
     return null;
-    // this.setState({
-    //   myMovies: result,
-    // })
-    // this.handleSignupOrLogin();
   }
 
   removeFavMovie = async (movie) => {
     let result = await userApi.removeFavMovie(movie);
-    console.log('this is after delete movie-------');
-    console.log(result);
     this.setState({
       myMovies: result,
     })
     return null;
-    // console.log(updatedUser);
-    // console.log('finished removing');
-    // this.setState({
-    //   user: updatedUser,
-    // });
   }
 
-  // const updatedPuppy = await puppyAPI.update(updatedPupData);
-  // const newPuppiesArray = this.state.puppies.map(p => 
-  //   p._id === updatedPuppy._id ? updatedPuppy : p
-  // );
-  // this.setState(
-  //   {puppies: newPuppiesArray},
-  //   // Using cb to wait for state to update before rerouting
-  //   () => this.props.history.push('/')
-  // );
-
   render() {
-    console.log('app');
-
     return (
       <Router>
         <div className="container">

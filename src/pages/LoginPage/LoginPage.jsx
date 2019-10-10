@@ -10,7 +10,6 @@ class LoginPage extends React.Component {
 
     handleChange = (e) => {
         this.setState({
-        // Using ES2015 Computed Property Names
             [e.target.name]: e.target.value
         });
     }
@@ -19,14 +18,9 @@ class LoginPage extends React.Component {
         e.preventDefault();
         try {
             await userService.login(this.state);
-            // // Let <App> know a user has signed up!
-            console.log('wrong here');
             this.props.handleSignupOrLogin();
-            console.log('right here');
-            // // Successfully signed up - show GamePage
             this.props.history.push('/');
         } catch (err) {
-            // Use a modal or toast in your apps instead of alert
             alert('Invalid Credentials!');
         }
     }
