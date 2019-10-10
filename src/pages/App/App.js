@@ -42,7 +42,10 @@ class App extends React.Component {
   handleLogout = () => {
     userService.logout();
     console.log('user log out!')
-    this.setState({ user: null });
+    this.setState({ 
+      user: null,
+      myMovies: [],
+    });
   }
 
   handleSignupOrLogin = async () => {
