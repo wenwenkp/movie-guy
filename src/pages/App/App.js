@@ -8,6 +8,7 @@ import NowPlaying from '../../components/NowPlaying/NowPlaying';
 import MovieList from '../../components/MovieList/MovieList';
 import Movie from '../../components/Movie/Movie';
 import Profile from '../../components/Profile/Profile';
+import Home from '../../components/Home/Home';
 
 import SignupPage from '../../pages/SignupPage/SignupPage';
 import LoginPage from '../../pages/LoginPage/LoginPage';
@@ -91,9 +92,9 @@ class App extends React.Component {
             handleChange={this.handleChange} />
           <Switch>
             <Route exact path='/' render={() => {
-              return <div>
-                home page
-              </div>
+              return (
+                <Home />
+              )
             }} />
             <Route exact path='/movies/top_rated' render={() => {
               return (<TopRated />)
