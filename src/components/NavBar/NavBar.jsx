@@ -40,7 +40,6 @@ const NavBar = (props) => {
                         {nav}
                     </ul>
                     <form className="form-inline my-2 my-lg-0" >
-                        
                         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={props.keyword} onChange={(e)=>props.handleChange(e)} name="keyword" />
                         <Link to={`/search/${props.keyword}`}><button onClick={(e)=>{props.handleSearch(e)}} className="btn btn-outline-success my-2 my-sm-0" type="submit" hidden>Search</button></Link>
                     </form>

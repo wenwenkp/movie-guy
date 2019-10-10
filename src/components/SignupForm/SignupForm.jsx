@@ -13,7 +13,6 @@ class SignupForm extends React.Component {
     handleChange = (e) => {
             this.props.updateMessage('');
             this.setState({
-              // Using ES2015 Computed Property Names
               [e.target.name]: e.target.value
             });
     }
@@ -22,13 +21,9 @@ class SignupForm extends React.Component {
         e.preventDefault();
         try {
           await userService.signup(this.state);
-          // Let <App> know a user has signed up!
-          console.log('i got hrere');
           this.props.handleSignupOrLogin();
-          // Successfully signed up - show GamePage
           this.props.history.push('/');
         } catch (err) {
-          // Invalid user data (probably duplicate email)
           this.props.updateMessage(err.message);
         }
       }

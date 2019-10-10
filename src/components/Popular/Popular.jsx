@@ -16,8 +16,6 @@ class Popular extends React.Component {
         });
     }
     render() {
-        console.log('popular');
-
         return (
             <div>
                 {this.state.movies ?

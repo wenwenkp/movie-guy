@@ -16,7 +16,6 @@ class TopRated extends React.Component {
         });
     }
     render() {
-        console.log('toprated');
         return (
             <div>
                 {this.state.movies ?

@@ -20,7 +20,6 @@ const Profile = (props) => {
                         )
                     })}
                 </div>
-
                 : <Redirect to='/login' />}
         </div>
     )

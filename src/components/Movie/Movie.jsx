@@ -21,11 +21,8 @@ class Movie extends React.Component {
         let companies = this.state.movie.production_companies;
         let option = false;
         if (this.state.movie) {
-            console.log('checking for option');
             for (let i = 0; i < this.props.myMovies.length; i++) {
-                console.log('looping for option');
                 if (this.props.myMovies[i].id === this.state.movie.id) {
-                    console.log('option is true');
                     option = true;
             }
         }

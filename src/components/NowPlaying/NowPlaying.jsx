@@ -16,7 +16,6 @@ class NowPlaying extends React.Component {
         });
     }
     render() {
-        console.log('nowplaying');
         return (
             <div>
                 {this.state.movies ?
