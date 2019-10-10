@@ -5,7 +5,7 @@ const moviesCtrl = require('../../controllers/movies');
 
 
 router.use(require('../../config/auth'));
-router.put('/get', moviesCtrl.getMovie);
+router.get('/get', moviesCtrl.getMovie);
 router.put('/add', moviesCtrl.addMovie);
 router.put('/remove', moviesCtrl.removeMovie);
 

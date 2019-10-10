@@ -28,7 +28,6 @@ function setToken(token) {
   
   function removeToken() {
     localStorage.removeItem('token');
-    localStorage.removeItem('myFavMovie');
   }
   
   export default {

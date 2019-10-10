@@ -20,7 +20,9 @@ class LoginPage extends React.Component {
         try {
             await userService.login(this.state);
             // // Let <App> know a user has signed up!
+            console.log('wrong here');
             this.props.handleSignupOrLogin();
+            console.log('right here');
             // // Successfully signed up - show GamePage
             this.props.history.push('/');
         } catch (err) {

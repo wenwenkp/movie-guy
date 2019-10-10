@@ -23,31 +23,21 @@ class App extends React.Component {
       user: userService.getUser(),
       keyword: '',
       searchResult: [],
-      // myMovies: this.getUserMovies(),
+      myMovies: [],
     };
   }
 
-//    componentDidMount() {
-// console.log('app did mount');
-//     this.setState({
-//       myMovies: this.getUserMovies(),
-//     });
-//   }
-
-  // async getUserMovies(){
-  //   try{
-  //     console.log(this.state.user);
-  //     let result = [];
-  //     if(this.state.user){
-  //       result = await userApi.getFavMovie();
-  //       // result = [1,2,3]
-  //     }
-  //     return result;
-  //   }catch(err){
-  //     console.log(err);
-  //     return null;
-  //   }
-  // }
+  async componentDidMount() {
+    console.log('app did mount');
+    if(this.state.user){
+      console.log('yes user');
+      let result = await userApi.getFavMovie();
+      console.log('here is result',result);
+      this.setState({
+        myMovies: result,
+      })
+    }
+  }
 
   handleLogout = () => {
     userService.logout();
@@ -55,9 +45,17 @@ class App extends React.Component {
     this.setState({ user: null });
   }
 
-  handleSignupOrLogin = () => {
+  handleSignupOrLogin = async () => {
     console.log('handlesinguporlogin');
-    this.setState({ user: userService.getUser() });
+    let result = await userApi.getFavMovie();
+
+    this.setState({ 
+      user: userService.getUser(),
+      myMovies: result,
+    }, ()=>{
+      console.log('forceupdate');
+      this.forceUpdate()
+    });
   }
 
   handleChange = (e) => {
@@ -79,6 +77,9 @@ class App extends React.Component {
     let result = await userApi.addFavMovie(movie);
     console.log('this is after addfavmovie--------');
     console.log(result);
+    this.setState({
+      myMovies: result,
+    })
     return null;
     // this.setState({
     //   myMovies: result,
@@ -90,6 +91,9 @@ class App extends React.Component {
     let result = await userApi.removeFavMovie(movie);
     console.log('this is after delete movie-------');
     console.log(result);
+    this.setState({
+      myMovies: result,
+    })
     return null;
     // console.log(updatedUser);
     // console.log('finished removing');
@@ -98,17 +102,19 @@ class App extends React.Component {
     // });
   }
 
-    // const updatedPuppy = await puppyAPI.update(updatedPupData);
-    // const newPuppiesArray = this.state.puppies.map(p => 
-    //   p._id === updatedPuppy._id ? updatedPuppy : p
-    // );
-    // this.setState(
-    //   {puppies: newPuppiesArray},
-    //   // Using cb to wait for state to update before rerouting
-    //   () => this.props.history.push('/')
-    // );
+  // const updatedPuppy = await puppyAPI.update(updatedPupData);
+  // const newPuppiesArray = this.state.puppies.map(p => 
+  //   p._id === updatedPuppy._id ? updatedPuppy : p
+  // );
+  // this.setState(
+  //   {puppies: newPuppiesArray},
+  //   // Using cb to wait for state to update before rerouting
+  //   () => this.props.history.push('/')
+  // );
 
   render() {
+    console.log('app');
+
     return (
       <Router>
         <div className="container">
@@ -137,7 +143,7 @@ class App extends React.Component {
               return (<MovieList movies={this.state.searchResult} />)
             }} />
             <Route exact path='/movie/:id' render={(props) => {
-              return (<Movie id={props.match.params.id} user={this.state.user} addFavMovie={this.addFavMovie} removeFavMovie={this.removeFavMovie}/>)
+              return (<Movie id={props.match.params.id} user={this.state.user} addFavMovie={this.addFavMovie} removeFavMovie={this.removeFavMovie} />)
             }} />
 
             <Route exact path='/profile' render={() => {
