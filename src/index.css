@@ -88,39 +88,19 @@ body {
     animation-duration: 1s;
     animation-timing-function: ease-in-out; }
 
-.logo:link, .logo:visited {
-  display: inline-block;
-  transition: all .2s;
-  position: relative; }
-
-.logo:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2); }
-  .logo:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0; }
-
-.logo:active {
-  transform: translateY(-1px);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-
-.logo--img {
-  background-image: url("./logo.png"); }
-  .logo--img::after {
-    background-image: url("./logo.png"); }
-
-.logo::after {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
-  transition: all .4s; }
-
-.logo--animated {
-  animation: moveInBottom .5s ease-out .75s;
-  animation-fill-mode: backwards; }
+.logo {
+  border-radius: 10rem; }
+  .logo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2); }
+    .logo:hover::after {
+      transform: scaleX(1.4) scaleY(1.6); }
+  .logo:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .logo--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; }
 
 .heading-secondary {
   font-size: 3.5rem;

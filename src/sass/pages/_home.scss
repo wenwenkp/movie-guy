@@ -63,24 +63,26 @@
 }
 
 .logo {
-    &:link,
-    &:visited {
-        // padding: 1.5rem 4rem;
-        // text-transform: uppercase;
-        display: inline-block;
-        // text-decoration: none;
-        // border-radius: 10rem;
-        transition: all .2s;
-        position: relative;
-    }
+    border-radius: 10rem;
+
+    // &:link,
+    // &:visited {
+    //     // padding: 1.5rem 4rem;
+    //     // text-transform: uppercase;
+    //     display: inline-block;
+    //     // text-decoration: none;
+    //     border-radius: 10rem;
+    //     transition: all .2s;
+    //     position: relative;
+    // }
     
     &:hover {
         transform: translateY(-3px);
-        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+        box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2);
 
         &::after {
             transform: scaleX(1.4) scaleY(1.6);
-            opacity: 0;
+            // opacity: 0;
         }
     }
     
@@ -89,29 +91,27 @@
         box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
     }
     
-    &--img {
-    //     color: $color-grey;
-        background-image: url('./logo.png');
-        
+    // &::after {
+    //     content: "ola";
+    //     display: inline-block;
+    //     height: 100%;
+    //     width: 100%;
+    //     border-radius: 10rem;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     z-index: -1;
+    //     transition: all .4s;
+    // }
 
-        &::after {
-            background-image: url('./logo.png');
+    // &--white {
+    //     // color: $color-grey;
+    //     background-color: $color-black;
 
-        }
-    }
-    
-    &::after {
-        content: "";
-        display: inline-block;
-        // height: 100%;
-        // width: 100%;
-        // border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all .4s;
-    }
+    //     &::after {
+    //         background-color: $color-black;
+    //     }
+    // }
     
     &--animated {
         animation: moveInBottom .5s ease-out .75s;

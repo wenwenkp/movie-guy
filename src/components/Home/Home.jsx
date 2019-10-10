@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import logo from '../../logo.png';
 
 const Home = () => {
@@ -10,8 +10,7 @@ const Home = () => {
                     <span className="heading-primary--main">MOVIEGUY</span>
                     <span className="heading-primary--sub">where happiness from</span>
                 </h1>
-                {/* <img to="#" className="logo logo--img logo--animated">lor</img> */}
-                <img src={logo} alt="logo" className="logo logo--animated"></img>
+                <Link to='/movies/now_playing'><img src={logo} alt="logo" className="logo logo--black logo--animated"></img></Link>
             </div>
         </header>
     )
