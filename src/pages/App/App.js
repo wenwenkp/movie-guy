@@ -23,7 +23,7 @@ class App extends React.Component {
       user: userService.getUser(),
       keyword: '',
       searchResult: [],
-      myMovies: this.getUserMovies(),
+      // myMovies: this.getUserMovies(),
     };
   }
 
@@ -34,19 +34,20 @@ class App extends React.Component {
 //     });
 //   }
 
-  async getUserMovies(){
-    try{
-      console.log(this.state.user);
-      let result = [];
-      if(this.state.user){
-        result = await userApi.getFavMovie();
-        // result = [1,2,3]
-      }
-      return result;
-    }catch(err){
-      console.log(err);
-    }
-  }
+  // async getUserMovies(){
+  //   try{
+  //     console.log(this.state.user);
+  //     let result = [];
+  //     if(this.state.user){
+  //       result = await userApi.getFavMovie();
+  //       // result = [1,2,3]
+  //     }
+  //     return result;
+  //   }catch(err){
+  //     console.log(err);
+  //     return null;
+  //   }
+  // }
 
   handleLogout = () => {
     userService.logout();
@@ -75,17 +76,21 @@ class App extends React.Component {
   }
 
   addFavMovie = async (movie) => {
-    console.log('thi is id: ', movie);
     let result = await userApi.addFavMovie(movie);
-    this.setState({
-      myMovies: result,
-    })
+    console.log('this is after addfavmovie--------');
+    console.log(result);
+    return null;
+    // this.setState({
+    //   myMovies: result,
+    // })
     // this.handleSignupOrLogin();
   }
 
   removeFavMovie = async (movie) => {
-    console.log('thi is remove: ', movie);
-    // let updatedUser = await userApi.removeFavMovie(movie);
+    let result = await userApi.removeFavMovie(movie);
+    console.log('this is after delete movie-------');
+    console.log(result);
+    return null;
     // console.log(updatedUser);
     // console.log('finished removing');
     // this.setState({
@@ -138,6 +143,7 @@ class App extends React.Component {
             <Route exact path='/profile' render={() => {
               return (<Profile user={this.state.user} />)
             }} />
+
             <Route exact path='/signup' render={({ history }) =>
               <SignupPage
                 history={history}

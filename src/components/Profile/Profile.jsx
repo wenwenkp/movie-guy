@@ -1,17 +1,16 @@
 import React from 'react';
-import {Redirect, Link} from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 
-    const Profile = (props) => {
-      
-        return (
-            <div>
-                {props.user ? 
+const Profile = (props) => {
+
+    return (
+        <div>
+            {props.user ?
                 <div>
                     <p>username: {props.user.username}</p>
                     <p>email: {props.user.email}</p>
                     <hr></hr>
-
-                    {props.user.favMovie.map((movie, idx)=>{
+                    {props.user.favMovie.map((movie, idx) => {
                         return (
                             <div key={idx}>
                                 <Link to={`/movie/${movie.id}`}>
@@ -21,9 +20,10 @@ import {Redirect, Link} from 'react-router-dom';
                         )
                     })}
                 </div>
+
                 : <Redirect to='/login' />}
-            </div>
-        )
+        </div>
+    )
 }
 
 export default Profile;

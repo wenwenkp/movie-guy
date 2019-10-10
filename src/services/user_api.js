@@ -13,7 +13,7 @@ function getFavMovie() {
     // Valid login if we have a status of 2xx (res.ok)
     if (res.ok) return res.json();
     throw new Error('Bad Credentials!');
-  });
+  }).then(data => {localStorage.setItem('myFavMovie', data)});
 }
 
 function addFavMovie(movie) {
@@ -31,18 +31,9 @@ function addFavMovie(movie) {
     // Valid login if we have a status of 2xx (res.ok)
     if (res.ok) return res.json();
     throw new Error('Bad Credentials!');
-  });
-  // .then(({token}) => tokenService.setToken(token));
+}).then(data => {localStorage.setItem('myFavMovie', data)});
 }
-//   .then(res => res.json())
-//   .then(({token}) => {
-//     console.log(token);
-//     debugger;
-//     localStorage.setItem('token', token);
 
-//   });
-//   // .then(JSON.parse(atob(localStorage.token.split('.')[1])).user);
-// }
 
 function removeFavMovie(movie) {
   console.log('starting to remove...')
@@ -55,7 +46,9 @@ function removeFavMovie(movie) {
         'Authorization': 'Bearer ' + tokenService.getToken(),
       },
     body: JSON.stringify(movie)
-  }).then(res => res.json());
+  }).then(res => res.json())
+.then(data => {localStorage.setItem('myFavMovie', data)});
+
 }
 
 export default {
