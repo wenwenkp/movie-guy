@@ -1,6 +1,6 @@
 @import "base/mixins";
 @import "base/variables";
-
+@import "base/functions";
 @import "base/animations";
 @import "base/base";
 @import "base/typography";
@@ -10,6 +10,8 @@
 @import "layout/grid";
 
 @import "pages/home";
+@import "pages/movie";
+
 
 
 
