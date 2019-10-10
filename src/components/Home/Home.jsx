@@ -1,18 +1,19 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
+import logo from '../../logo.png';
 
 const Home = () => {
     return (
-        <div className="header">
-            <div className="logo-box">
-                <img src="#" alt="Logo" className="logo" />
-            </div>
-            <div className="text-box">
+        <header className="header">
+            <div className="header__text--box">
                 <h1 className="heading-primary">
-                    <span className="heading-primary-main">MOVIEGUY</span>
-                    <span className="heading-primary-sub">is where life happens</span>
+                    <span className="heading-primary--main">MOVIEGUY</span>
+                    <span className="heading-primary--sub">where happiness from</span>
                 </h1>
+                {/* <img to="#" className="logo logo--img logo--animated">lor</img> */}
+                <img src={logo} alt="logo" className="logo logo--animated"></img>
             </div>
-        </div>
+        </header>
     )
 }
 
