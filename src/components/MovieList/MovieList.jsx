@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+let animationArray = ['imageMoveInTop', 'imageMoveInBottom', 'imageMoveInLeft', 'imageMoveInRight']
+
 const MovieList = (props) => {
     return (
         <div>
@@ -12,15 +14,15 @@ const MovieList = (props) => {
                     {props.movies.map((movie) => {
                     if (movie.poster_path !== null) {
                         let time = Math.random()*5;
-                        console.log(time);
+                        let num = Math.floor(Math.random() * Math.floor(4))
+                        let name = animationArray[num];
                         let imgStyle = {
-                            animationDuration: time + 's'
-                        };
+                            animation: `${name} ${time}s`,
+                        }
                     return (
                     <Link to={`/movie/${movie.id}`} key={movie.id}>
                         <img src={movie.poster_path} alt={movie.title} 
                         className="img img--black img--animated"
-                        //  style={{`animation: ${time} + em`}}
                         style={imgStyle}
                           >
 

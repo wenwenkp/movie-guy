@@ -38,10 +38,34 @@
     opacity: 1;
     transform: translateY(0); } }
 
+@keyframes imageMoveInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes imageMoveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
 @keyframes imageMoveInBottom {
   0% {
     opacity: 0;
-    transform: translateY(100rem); }
+    transform: translateY(-100rem); }
+  100% {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes imageMoveInTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-100rem); }
   100% {
     opacity: 1;
     transform: translateY(0); } }
@@ -162,5 +186,4 @@ body {
     transform: translateY(-1px);
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
   .img--animated {
-    animation-name: imageMoveInBottom;
     animation-fill-mode: backwards; }
