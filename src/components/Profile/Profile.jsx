@@ -10,7 +10,7 @@ const Profile = (props) => {
                     <p>username: {props.user.username}</p>
                     <p>email: {props.user.email}</p>
                     <hr></hr>
-                    {props.user.favMovie.map((movie, idx) => {
+                    {props.myMovies.map((movie, idx) => {
                         return (
                             <div key={idx}>
                                 <Link to={`/movie/${movie.id}`}>

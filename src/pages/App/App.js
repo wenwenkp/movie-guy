@@ -29,10 +29,10 @@ class App extends React.Component {
 
   async componentDidMount() {
     console.log('app did mount');
-    if(this.state.user){
+    if (this.state.user) {
       console.log('yes user');
       let result = await userApi.getFavMovie();
-      console.log('here is result',result);
+      console.log('here is result', result);
       this.setState({
         myMovies: result,
       })
@@ -49,10 +49,10 @@ class App extends React.Component {
     console.log('handlesinguporlogin');
     let result = await userApi.getFavMovie();
 
-    this.setState({ 
+    this.setState({
       user: userService.getUser(),
       myMovies: result,
-    }, ()=>{
+    }, () => {
       console.log('forceupdate');
       this.forceUpdate()
     });
@@ -143,11 +143,19 @@ class App extends React.Component {
               return (<MovieList movies={this.state.searchResult} />)
             }} />
             <Route exact path='/movie/:id' render={(props) => {
-              return (<Movie id={props.match.params.id} user={this.state.user} addFavMovie={this.addFavMovie} removeFavMovie={this.removeFavMovie} />)
+              return (
+                <Movie
+                  id={props.match.params.id}
+                  user={this.state.user}
+                  addFavMovie={this.addFavMovie}
+                  removeFavMovie={this.removeFavMovie}
+                  myMovies={this.state.myMovies}
+                />
+              )
             }} />
 
             <Route exact path='/profile' render={() => {
-              return (<Profile user={this.state.user} />)
+              return (<Profile user={this.state.user} myMovies={this.state.myMovies} />)
             }} />
 
             <Route exact path='/signup' render={({ history }) =>
