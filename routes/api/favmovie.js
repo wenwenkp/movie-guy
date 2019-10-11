@@ -5,8 +5,8 @@ const moviesCtrl = require('../../controllers/movies');
 
 // routes to update myMovie state in App
 router.use(require('../../config/auth'));
-router.get('/get', moviesCtrl.getMovie);
-router.put('/add', moviesCtrl.addMovie);
-router.put('/remove', moviesCtrl.removeMovie);
+router.get('/get/:id', moviesCtrl.getMovie);
+router.put('/add/:id', moviesCtrl.addMovie);
+router.put('/remove/:id', moviesCtrl.removeMovie);
 
 module.exports = router;
