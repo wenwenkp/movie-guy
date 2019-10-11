@@ -2,11 +2,11 @@ import React from 'react';
 // import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 
-class NavBar extends React.Component {
-// const NavBar = (props) => {
-    state = {
-        isChecked: false,
-    }
+// class NavBar extends React.Component {
+const NavBar = (props) => {
+    // state = {
+    //     isChecked: false,
+    // }
 
     // exampleRef = React.createRef();
 
@@ -20,46 +20,46 @@ class NavBar extends React.Component {
         // })
     //   }
 
-      handleCheckboxChange = (event) => {
-        console.log("checkbox changed!", event);
-        this.setState({isChecked: event.target.checked});
-    }
+    //   handleCheckboxChange = (event) => {
+    //     console.log("checkbox changed!", event);
+    //     this.setState({isChecked: event.target.checked});
+    // }
 
-    toggleIsChecked = ()=> {
-        console.log("toggling isChecked value!");
-        this.setState({isChecked: !this.state.isChecked});
-    }
+    // toggleIsChecked = ()=> {
+    //     console.log("toggling isChecked value!");
+    //     this.setState({isChecked: !this.state.isChecked});
+    // }
 
-    handleButtonClick=(event)=> {
-        console.log("button was pressed!", event);
-        this.toggleIsChecked();
-    }
+    // handleButtonClick=(event)=> {
+    //     console.log("button was pressed!", event);
+    //     this.toggleIsChecked();
+    // }
 
 
-    render(){
+    // render(){
 
-    let nav = this.props.user ?
+    let nav = props.user ?
         <>
             <li className="navigation__item">
-                <NavLink to='/profile' className="navigation__link" onClick={this.handleButtonClick}><span>Profile</span></NavLink>
+                <NavLink to='/profile' className="navigation__link" onClick={()=>{props.handleButtonClick()}}><span>Profile</span></NavLink>
             </li>
             <li className="navigation__item">
-                <NavLink to='' className="navigation__link"><span onClick={this.props.handleLogout} onClick={this.handleButtonClick}>Log Out</span></NavLink>
+                <NavLink to='' className="navigation__link"><span onClick={()=>{props.handleLogout()}}>Log Out</span></NavLink>
             </li>
         </>
         :
         <>
             <li className="navigation__item">
-                <NavLink to='/signup' className="navigation__link" onClick={this.handleButtonClick}><span>Sign Up</span></NavLink>
+                <NavLink to='/signup' className="navigation__link" onClick={()=>{props.handleButtonClick()}}><span>Sign Up</span></NavLink>
             </li>
             <li className="navigation__item">
-                <NavLink to='/login' className="navigation__link" onClick={this.handleButtonClick}><span>Log In</span></NavLink>
+                <NavLink to='/login' className="navigation__link" onClick={()=>{props.handleButtonClick()}}><span>Log In</span></NavLink>
             </li>
         </>;
     return (
 <div className="navigation">
     <input type="checkbox" className="navigation__checkbox" id="navi-toggle"
-    onChange={this.handleCheckboxChange} checked={this.state.isChecked}/>
+    onChange={(e)=>{props.handleCheckboxChange(e)}} checked={props.isChecked}/>
      {/* checked={this.state.isChecked} onChange={this.handleCheckboxChange}/> */}
     <label htmlFor="navi-toggle" className="navigation__button">
         <span className="navigation__icon">&nbsp;</span>
@@ -70,16 +70,16 @@ class NavBar extends React.Component {
     <nav className="navigation__nav">
         <ul className="navigation__list">
             <li className="navigation__item">
-                <NavLink to='/' className="navigation__link" onClick={this.handleButtonClick}><span >Home</span></NavLink>
+                <NavLink to='/' className="navigation__link" onClick={()=>{props.handleButtonClick()}}><span >Home</span></NavLink>
             </li>
             <li className="navigation__item">
-                <NavLink to='/movies/top_rated' className="navigation__link" onClick={this.handleButtonClick}><span >Top Rated</span></NavLink>
+                <NavLink to='/movies/top_rated' className="navigation__link" onClick={()=>{props.handleButtonClick()}}><span >Top Rated</span></NavLink>
             </li>
             <li className="navigation__item">
-                <NavLink to='/movies/now_playing' className="navigation__link" onClick={this.handleButtonClick}><span >Now Playing</span></NavLink>
+                <NavLink to='/movies/now_playing' className="navigation__link" onClick={()=>{props.handleButtonClick()}}><span >Now Playing</span></NavLink>
             </li>
             <li className="navigation__item">
-                <NavLink to='/movies/popular' className="navigation__link" onClick={this.handleButtonClick}><span >Popular</span></NavLink>
+                <NavLink to='/movies/popular' className="navigation__link" onClick={()=>{props.handleButtonClick()}}><span >Popular</span></NavLink>
             </li>
             {nav}
         </ul>
@@ -116,7 +116,7 @@ class NavBar extends React.Component {
         // </nav>
     )
 }
-}
+// }
 
 export default NavBar;
 
