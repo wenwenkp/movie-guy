@@ -178,8 +178,11 @@ body {
     animation-timing-function: ease-in-out; }
 
 .img {
-  width: 20rem; }
+  width: 20rem;
+  filter: brightness(0.85) contrast(100%); }
   .img:hover {
+    transition: filter .3s;
+    filter: brightness(1.1) contrast(110%);
     transform: translateY(-3px);
     box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2); }
     .img:hover::after {

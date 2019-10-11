@@ -47,6 +47,8 @@
 .img {
     // border-radius: .5rem;
     width: 20rem;
+    filter: brightness(0.85) contrast(100%);
+
     // &:link,
     // &:visited {
     //     // padding: 1.5rem 4rem;
@@ -59,9 +61,13 @@
     // }
     
     &:hover {
+
+        // cursor: pointer;
+        transition: filter .3s;
+        filter: brightness(1.1) contrast(110%);
         transform: translateY(-3px);
         box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2);
-
+        
         &::after {
             transform: scaleX(1.4) scaleY(1.6);
             // opacity: 0;
