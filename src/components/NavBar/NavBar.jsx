@@ -23,7 +23,7 @@ const NavBar = (props) => {
         </>;
     return (
 <div className="navigation">
-    <input type="checkbox" className="navigation__checkbox" id="navi-toggle" />
+    <input type="checkbox" className="navigation__checkbox" id="navi-toggle" hidden/>
     <label htmlFor="navi-toggle" className="navigation__button">
         <span className="navigation__icon">&nbsp;</span>
     </label>
