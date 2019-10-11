@@ -18,15 +18,15 @@ import movieApi from '../../services/movie_api';
 import userApi from '../../services/user_api';
 
 class App extends React.Component {
-    state = {
-      user: userService.getUser(),
-      keyword: '',
-      searchResult: [],
-      myMovies: [],
-      // checkbox: false,
-      isChecked: false,
+  state = {
+    user: userService.getUser(),
+    keyword: '',
+    searchResult: [],
+    myMovies: [],
+    // checkbox: false,
+    isChecked: false,
 
-    };
+  };
 
   async componentDidMount() {
     if (this.state.user) {
@@ -42,7 +42,7 @@ class App extends React.Component {
     console.log('logout clicked');
     userService.logout();
     console.log('logout!');
-    this.setState({ 
+    this.setState({
       user: null,
       myMovies: [],
     });
@@ -88,21 +88,21 @@ class App extends React.Component {
     return null;
   }
 
-  handleButtonClick=()=> {
+  handleButtonClick = () => {
     console.log("button was pressed!");
     this.toggleIsChecked();
-}
+  }
 
-handleCheckboxChange = (event) => {
-  console.log("checkbox changed!", event);
-  this.setState({isChecked: event.target.checked});
-}
+  handleCheckboxChange = (event) => {
+    console.log("checkbox changed!", event);
+    this.setState({ isChecked: event.target.checked });
+  }
 
-toggleIsChecked = ()=> {
-  console.log("toggling isChecked value!");
-  this.setState({isChecked: !this.state.isChecked});
-}
-  
+  toggleIsChecked = () => {
+    console.log("toggling isChecked value!");
+    this.setState({ isChecked: !this.state.isChecked });
+  }
+
 
   render() {
     return (
@@ -111,17 +111,19 @@ toggleIsChecked = ()=> {
           <NavBar
             isChecked={this.state.isChecked}
             user={this.state.user}
-            keyword={this.state.keyword}
             handleLogout={this.handleLogout}
-            handleSearch={this.handleSearch}
             handleButtonClick={this.handleButtonClick}
             handleCheckboxChange={this.handleCheckboxChange}
-            // handleNavbar={this.handleNavbar}
-            handleChange={this.handleChange} />
+          // handleNavbar={this.handleNavbar}
+          />
           <Switch>
             <Route exact path='/' render={() => {
               return (
-                <Home />
+                <Home
+                  handleSearch={this.handleSearch}
+                  keyword={this.state.keyword}
+                  handleChange={this.handleChange}
+                />
               )
             }} />
             <Route exact path='/movies/top_rated' render={() => {
