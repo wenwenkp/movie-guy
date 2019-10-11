@@ -106,5 +106,6 @@
         // animation-duration: 1s;
         // animation: imageMoveInBottom random(10);
         animation-fill-mode: backwards;
+        animation-timing-function: ease-in-out;
     }
 }
