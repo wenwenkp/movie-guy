@@ -59,7 +59,7 @@ const NavBar = (props) => {
     return (
 <div className="navigation">
     <input type="checkbox" className="navigation__checkbox" id="navi-toggle"
-    onChange={(e)=>{props.handleCheckboxChange(e)}} checked={props.isChecked}/>
+    onChange={(e)=>{props.handleCheckboxChange(e)}} checked={props.isChecked} hidden/>
      {/* checked={this.state.isChecked} onChange={this.handleCheckboxChange}/> */}
     <label htmlFor="navi-toggle" className="navigation__button">
         <span className="navigation__icon">&nbsp;</span>
