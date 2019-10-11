@@ -195,19 +195,3 @@ body {
 
 .navbar-font {
   font-size: 2.5rem; }
-
-.profile__img {
-  width: 15%;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
-  border-radius: 2px;
-  z-index: 10;
-  transition: all .2s;
-  outline-offset: 2rem; }
-
-.profile__img:hover {
-  transform: scale(1.3) translateY(-0.5rem);
-  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
-  z-index: 20; }
-
-.profile__img:hover .profile__img:not(:hover) {
-  transform: scale(0.9); }

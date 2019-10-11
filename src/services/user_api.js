@@ -14,28 +14,30 @@ function getFavMovie() {
   });
 }
 
-function addFavMovie(movie) {
+function addFavMovie(movieId, title, url) {
   return fetch(`${BASE_URL}/add`, {
-    method: 'PUT',
+    method: 'POST',
     headers: {
       'content-type': 'application/json',
       'Authorization': 'Bearer ' + tokenService.getToken(),
     },
-    body: JSON.stringify(movie)
+    body: JSON.stringify({'movieId': movieId, 'title': title, 'imgUrl': url})
   }).then(res => {
+    console.log('res got');
+    console.log(res);
     if (res.ok) return res.json();
     throw new Error('Bad Credentials!');
   });
 }
 
-function removeFavMovie(movie) {
-  return fetch(`${BASE_URL}/remove`, {
-    method: 'PUT',
+function removeFavMovie(movieId) {
+  return fetch(`${BASE_URL}/remove/${movieId}`, {
+    method: 'DELETE',
     headers: {
       'content-type': 'application/json',
       'Authorization': 'Bearer ' + tokenService.getToken(),
     },
-    body: JSON.stringify(movie)
+    // body: JSON.stringify(movieId)
   }).then(res => res.json());
 }
 

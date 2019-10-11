@@ -11,6 +11,7 @@ async function getMovie(req, res) {
     try {
         let user = await User.findById(req.user._id);
         if (!user) return res.status(401).json({ err: 'bad credentials' });
+        console.log('get movie back end');
         return res.json(user.favMovie);
     } catch (err) {
         return res.status(401).json(err);
@@ -21,7 +22,7 @@ async function getMovie(req, res) {
 async function addMovie(req, res) {
     try {
         let user = await User.findById(req.user._id);
-        if (!user) return res.status(401).json({ err: 'bad credentials' });        
+        if (!user) return res.status(401).json({ err: 'bad credentials' });
         user.favMovie.push(req.body);
         await user.save();
         return res.json(user.favMovie);
@@ -32,18 +33,15 @@ async function addMovie(req, res) {
 
 // remove movie to user favMovie list and send data back to update state in App
 async function removeMovie(req, res) {
-    try {
-
         let user = await User.findById(req.user._id);
         if (!user) return res.status(401).json({ err: 'bad credentials' });
-        for (let i = 0; i < user.favMovie.length; i++) {
-            if (user.favMovie[i].movieId === req.params.id) {
-                user.favMovie.splice(i, 1);
+        console.log(req.params.id);
+        user.favMovie.forEach(async function (movie, idx) {
+            if (req.params.id === movie.movieId.toString()) {
+                user.favMovie.splice(idx, 1);
+                const updatedUser = await user.save();
+                console.log('deleted....');
+                return res.json(updatedUser.favMovie);
             }
-        }
-        await user.save();
-        return res.json(user.favMovie);
-    } catch (err) {
-        return res.status(401).json(err);
-    }
+        })
 }

@@ -4,9 +4,9 @@ const bcrypt = require('bcrypt');
 const SALT_ROUNDS = 6;
 
 const movieSchema = new mongoose.Schema({
-  movieId: String,
-  postPath: String,
+  movieId: Number,
   title: String,
+  imgUrl: String,
 });
 
 const userSchema = new mongoose.Schema({

@@ -65,15 +65,17 @@ class App extends React.Component {
   }
 
   addFavMovie = async (movie) => {
-    let result = await userApi.addFavMovie(movie);
+    let result = await userApi.addFavMovie(movie.id, movie.title, movie.poster_path);
     this.setState({
       myMovies: result,
     })
     return null;
   }
 
-  removeFavMovie = async (movie) => {
-    let result = await userApi.removeFavMovie(movie);
+  removeFavMovie = async (movieId) => {
+    console.log(movieId);
+    console.log(typeof movieId);
+    let result = await userApi.removeFavMovie(movieId);
     this.setState({
       myMovies: result,
     })

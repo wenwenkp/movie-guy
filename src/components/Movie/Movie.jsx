@@ -22,13 +22,12 @@ class Movie extends React.Component {
         let option = false;
         if (this.state.movie) {
             for (let i = 0; i < this.props.myMovies.length; i++) {
-                if (this.props.myMovies[i].id === this.state.movie.id) {
+                if (this.props.myMovies[i].movieId === this.state.movie.id) {
                     option = true;
             }
         }
     }
 
-        console.log(option);
         return (
             <div>
                 {this.state.movie ?
@@ -67,7 +66,7 @@ class Movie extends React.Component {
                         {this.props.user ? 
                             <div>
                                 {option ? 
-                                <button onClick={() => { this.props.removeFavMovie(this.state.movie) }}>Unsave</button>
+                                <button onClick={() => { this.props.removeFavMovie(this.state.movie.id) }}>Unsave</button>
                                 :
                                 <button onClick={() => { this.props.addFavMovie(this.state.movie) }}>Add to Favourite</button>}
                             </div>
