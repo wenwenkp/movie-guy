@@ -23,6 +23,7 @@ class App extends React.Component {
       keyword: '',
       searchResult: [],
       myMovies: [],
+      // checkbox: false,
     };
 
   async componentDidMount() {
@@ -82,6 +83,8 @@ class App extends React.Component {
     return null;
   }
 
+  
+
   render() {
     return (
       <Router>
@@ -91,6 +94,7 @@ class App extends React.Component {
             keyword={this.state.keyword}
             handleLogout={this.handleLogout}
             handleSearch={this.handleSearch}
+            // handleNavbar={this.handleNavbar}
             handleChange={this.handleChange} />
           <Switch>
             <Route exact path='/' render={() => {
