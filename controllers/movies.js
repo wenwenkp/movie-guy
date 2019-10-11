@@ -37,7 +37,7 @@ async function removeMovie(req, res) {
         let user = await User.findById(req.user._id);
         if (!user) return res.status(401).json({ err: 'bad credentials' });
         for (let i = 0; i < user.favMovie.length; i++) {
-            if (user.favMovie[i].movieId === req.body.id) {
+            if (user.favMovie[i].movieId === req.params.id) {
                 user.favMovie.splice(i, 1);
             }
         }
