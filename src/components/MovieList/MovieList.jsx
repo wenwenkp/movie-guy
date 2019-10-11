@@ -10,7 +10,6 @@ const MovieList = (props) => {
             <div className='list'>
                 <div className="list__text--box">
                     <h1 className="list-primary">{props.title}</h1>
-                    {/* <div className='images-box'> */}
                     {props.movies.map((movie) => {
                     if (movie.poster_path !== null) {
                         let time = Math.random()*5;
