@@ -1,13 +1,4 @@
-// .navbar-font {
-//     font-size: 2.5rem;
-
-// }
-
 .navigation {
-    // position: relative;
-    // &__checkbox {
-
-    // }
 
     &__button{
         background-color: $color-white;
@@ -33,12 +24,10 @@
         background-image: radial-gradient($color-grey, $color-black);
         z-index: 1000;
         transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
-        // transform: scale(50);
     }
 
     &__nav {
         height: 100vh;
-        // width: 100%;
         position: fixed;
         top: 0;
         right: 0;
@@ -59,14 +48,10 @@
         width: 100%;
     }
 
-    // &__item {
-
-    // }
-
     &__link {
         &:link,
         &:visited{
-            display: inline-block;
+        display: inline-block;
         font-size: 3rem;
         font-weight: 300;
         padding: 1rem 2rem;
@@ -90,8 +75,7 @@
         color: $color-black;
         transform: translateX(1rem);
     }
-}
-    // function
+    }
     &__checkbox:checked ~ &__background {
         transform: scale(80);
         
@@ -101,7 +85,6 @@
         width: 100%;
     }
 
-    // icon
     &__icon {
         position: relative;
         margin-top: 3.5rem;
@@ -157,53 +140,14 @@
     right: 5rem;
     bottom: 5rem;
 
-    // &:link,
-    // &:visited {
-    //     // padding: 1.5rem 4rem;
-    //     // text-transform: uppercase;
-    //     display: inline-block;
-    //     // text-decoration: none;
-    //     border-radius: 10rem;
-    //     transition: all .2s;
-    //     position: relative;
-    // }
-    
     &:hover {
         transform: translateY(-3px);
         box-shadow: 0 0rem 3rem rgba(249, 38, 107, .5);
 
         &::after {
             transform: scaleX(1.4) scaleY(1.6);
-            // opacity: 0;
         }
     }
-    
-    &:active {
-        transform: translateY(-1px);
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
-    }
-    
-    // &::after {
-    //     content: "ola";
-    //     display: inline-block;
-    //     height: 100%;
-    //     width: 100%;
-    //     border-radius: 10rem;
-    //     position: absolute;
-    //     top: 0;
-    //     left: 0;
-    //     z-index: -1;
-    //     transition: all .4s;
-    // }
-
-    // &--white {
-    //     // color: $color-grey;
-    //     background-color: $color-black;
-
-    //     &::after {
-    //         background-color: $color-black;
-    //     }
-    // }
     
     &--animated {
         animation: moveInBottom 1s ease-out 1.5s;

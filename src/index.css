@@ -276,9 +276,6 @@ body {
     box-shadow: 0 0rem 3rem rgba(249, 38, 107, 0.5); }
     .logo:hover::after {
       transform: scaleX(1.4) scaleY(1.6); }
-  .logo:active {
-    transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
   .logo--animated {
     animation: moveInBottom 1s ease-out 1.5s;
     animation-fill-mode: backwards; }
