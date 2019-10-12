@@ -21,7 +21,7 @@ const MovieList = (props) => {
                     return (
                     <Link to={`/movie/${movie.id}`} key={movie.id}>
                         <img src={movie.poster_path} alt={movie.title} 
-                        className="img img--black img--animated"
+                        className="img img--animated"
                         style={imgStyle}
                           >
 
