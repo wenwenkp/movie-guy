@@ -107,7 +107,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <div className="container">
+        <div>
           <NavBar
             isChecked={this.state.isChecked}
             user={this.state.user}
