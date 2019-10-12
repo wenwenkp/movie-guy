@@ -139,6 +139,8 @@
     position: fixed;
     right: 5rem;
     bottom: 5rem;
+    z-index: 1000;
+
 
     &:hover {
         transform: translateY(-3px);

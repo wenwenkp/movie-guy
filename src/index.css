@@ -323,7 +323,8 @@ body {
   border-radius: 5rem;
   position: fixed;
   right: 5rem;
-  bottom: 5rem; }
+  bottom: 5rem;
+  z-index: 1000; }
   .logo:hover {
     transform: translateY(-3px);
     box-shadow: 0 0rem 3rem rgba(249, 38, 107, 0.5); }
