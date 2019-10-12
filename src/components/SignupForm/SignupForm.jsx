@@ -29,39 +29,39 @@ class SignupForm extends React.Component {
       }
 
     isFormInvalid() {
-            return !(this.state.username && this.state.email && this.state.password === this.state.passwordConf);
+            return !(this.state.username && this.state.email && this.state.password === this.state.passwordConf && this.state.password &&this.state.passwordConf);
     }
 
     render() {
         return (
-            <div className="mt-5">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-row mt-3 justify-content-md-center">
-                        <div className="col-md-4">
-                            <input type="text" className="form-control" placeholder="Name" value={this.state.username} name="username" onChange={this.handleChange} />
+            <div className="login">
+            <div className="login__box">
+                <form onSubmit={this.handleSubmit} className="form">
+                        <div className="form__group">
+                            <input type="text" className="form__input" placeholder="Username" id="username" value={this.state.username} name="username" onChange={this.handleChange} />
+                            <label htmlFor="username" className="form__label">Username</label>
+
                         </div>
-                    </div>
-                    <div className="form-row mt-3 justify-content-md-center">
-                        <div className="col-md-4">
-                            <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+                        <div className="form__group">
+                            <input type="email" className="form__input" placeholder="Email" id="email" value={this.state.email} name="email" onChange={this.handleChange} />
+                            <label htmlFor="email" className="form__label">Email</label>
+
                         </div>
-                    </div>
-                    <div className="form-row mt-3 justify-content-md-center">
-                        <div className="col-md-4">
-                            <input type="password" className="form-control" placeholder="Password" value={this.state.password} name="password" onChange={this.handleChange} />
+                        <div className="form__group">
+                            <input type="password" className="form__input" placeholder="Password" id="password" value={this.state.password} name="password" onChange={this.handleChange} />
+                            <label htmlFor="password" className="form__label">Password</label>
+
                         </div>
-                    </div>
-                    <div className="form-row mt-3 justify-content-md-center">
-                        <div className="col-md-4">
-                            <input type="password" className="form-control" placeholder="Confirm Password" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+                        <div className="form__group">
+                            <input type="password" className="form__input" placeholder="Confirm Password" id="passwordConf" value={this.state.passwordConf} name="passwordConf" onChange={this.handleChange} />
+                            <label htmlFor="passwordConf" className="form__label">Confirm Password</label>
+
                         </div>
-                    </div>
-                    <div className="form-row mt-3 justify-content-md-center">
-                        <div className="col-md-4 justify">
-                            <button className="btn btn-outline-info" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
+                        <div className="form__group">
+                            <button className="button button--white" disabled={this.isFormInvalid()}>Sign Up</button>&nbsp;&nbsp;
                         </div>
-                    </div>
                 </form>
+            </div>
             </div>
         );
     }

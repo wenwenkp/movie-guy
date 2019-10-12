@@ -39,7 +39,7 @@ class LoginPage extends React.Component {
                             <label htmlFor="pw" className="form__label">Password</label>
                         </div>
                         <div className="form__group">
-                            <button className="btn btn--white">Login</button>
+                            <button className="button button--white">Login</button>
                         </div>
                     </form>
                 </div>
