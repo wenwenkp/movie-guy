@@ -27,24 +27,22 @@ class LoginPage extends React.Component {
 
     render() {
         return (
-            <div className="mt-5">
-                <form onSubmit={this.handleSubmit}>
-                    <div className="form-row mt-3 justify-content-md-center">
-                        <div className="col-md-4">
-                            <input type="email" className="form-control" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+            <div className="login">
+                <div className="login__box">
+                    <form onSubmit={this.handleSubmit} className="form">
+                        <div className="form__group">
+                            <input type="email" id="email" className="form__input" placeholder="Email" value={this.state.email} name="email" onChange={this.handleChange} />
+                            <label htmlFor="email" className="form__label">Email</label>
                         </div>
-                    </div>
-                    <div className="form-row mt-3 justify-content-md-center">
-                        <div className="col-md-4">
-                            <input type="password" className="form-control" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+                        <div className="form__group">
+                            <input type="password" id="pw" className="form__input" placeholder="Password" value={this.state.pw} name="pw" onChange={this.handleChange} />
+                            <label htmlFor="pw" className="form__label">Password</label>
                         </div>
-                    </div>
-                    <div className="form-row mt-3 justify-content-md-center">
-                        <div className="col-md-4 justify">
-                            <button className="btn btn-outline-info">Login</button>&nbsp;&nbsp;
+                        <div className="form__group">
+                            <button className="btn btn--white">Login</button>
                         </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         );
     }
