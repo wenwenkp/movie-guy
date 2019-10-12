@@ -10,11 +10,11 @@ const Home = (props) => {
                     <span className="heading-primary--main">MOVIEGUY</span>
                     <span className="heading-primary--sub">where happiness from</span>
                 </h1>
-                <form className="logo--animated" >
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={props.keyword} onChange={(e) => props.handleChange(e)} name="keyword" />
+                <form className="search logo--animated" >
+                    <input className="search__box" type="search" placeholder="Search" aria-label="Search" value={props.keyword} onChange={(e) => props.handleChange(e)} name="keyword" />
                      <Link to={`/search/${props.keyword}`}><button onClick={(e) => { props.handleSearch(e) }} className="btn btn-outline-success my-2 my-sm-0" type="submit" hidden>Search</button></Link>
                 </form>
-                <Link to='/movies/now_playing'><img src={logo} alt="logo" className="logo logo--black logo--animated"></img></Link>
+                {/* <Link to='/movies/now_playing'><img src={logo} alt="logo" className="logo logo--black logo--animated"></img></Link> */}
 
             </div>
         </header>

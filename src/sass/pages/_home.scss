@@ -141,3 +141,17 @@
         text-shadow: .5rem 1rem 2rem rgba($color-black, .2);
     }
 }
+
+.search {
+    // width: 55rem;
+    border-radius: 1rem;
+    border: 3rem solid black;
+
+    &__box {
+        width: 100%;
+        font-size: 2rem;
+    }
+    // &:hover {
+    //     width: 70%;
+    // }
+}

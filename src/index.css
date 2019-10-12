@@ -148,6 +148,13 @@ body {
     transform: skewY(2deg) skewX(15deg) scale(1.1);
     text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
 
+.search {
+  border-radius: 1rem;
+  border: 3rem solid black; }
+  .search__box {
+    width: 100%;
+    font-size: 2rem; }
+
 .list {
   position: relative; }
   .list__text--box {
