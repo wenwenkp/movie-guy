@@ -4,7 +4,7 @@
 // }
 
 .navigation {
-
+    // position: relative;
     // &__checkbox {
 
     // }
@@ -148,5 +148,65 @@
     &__checkbox:checked + &__button &__icon::after {
         top: 0;
         transform: rotate(-45deg);
+    }
+}
+
+.logo {
+    border-radius: 5rem;
+    position: fixed;
+    right: 5rem;
+    bottom: 5rem;
+
+    // &:link,
+    // &:visited {
+    //     // padding: 1.5rem 4rem;
+    //     // text-transform: uppercase;
+    //     display: inline-block;
+    //     // text-decoration: none;
+    //     border-radius: 10rem;
+    //     transition: all .2s;
+    //     position: relative;
+    // }
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0rem 3rem rgba(249, 38, 107, .5);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            // opacity: 0;
+        }
+    }
+    
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+    
+    // &::after {
+    //     content: "ola";
+    //     display: inline-block;
+    //     height: 100%;
+    //     width: 100%;
+    //     border-radius: 10rem;
+    //     position: absolute;
+    //     top: 0;
+    //     left: 0;
+    //     z-index: -1;
+    //     transition: all .4s;
+    // }
+
+    // &--white {
+    //     // color: $color-grey;
+    //     background-color: $color-black;
+
+    //     &::after {
+    //         background-color: $color-black;
+    //     }
+    // }
+    
+    &--animated {
+        animation: moveInBottom 1s ease-out 1.5s;
+        animation-fill-mode: backwards;
     }
 }

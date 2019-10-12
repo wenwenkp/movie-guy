@@ -122,20 +122,6 @@ body {
     animation-duration: 1s;
     animation-timing-function: ease-in-out; }
 
-.logo {
-  border-radius: 5rem; }
-  .logo:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.2); }
-    .logo:hover::after {
-      transform: scaleX(1.4) scaleY(1.6); }
-  .logo:active {
-    transform: translateY(-1px);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
-  .logo--animated {
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards; }
-
 .heading-secondary {
   font-size: 3.5rem;
   text-transform: uppercase;
@@ -154,6 +140,9 @@ body {
   .search__box {
     width: 100%;
     font-size: 2rem; }
+  .search--animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards; }
 
 .list {
   position: relative; }
@@ -304,3 +293,20 @@ body {
 .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
   top: 0;
   transform: rotate(-45deg); }
+
+.logo {
+  border-radius: 5rem;
+  position: fixed;
+  right: 5rem;
+  bottom: 5rem; }
+  .logo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0rem 3rem rgba(249, 38, 107, 0.5); }
+    .logo:hover::after {
+      transform: scaleX(1.4) scaleY(1.6); }
+  .logo:active {
+    transform: translateY(-1px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+  .logo--animated {
+    animation: moveInBottom 1s ease-out 1.5s;
+    animation-fill-mode: backwards; }

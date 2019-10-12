@@ -8,14 +8,12 @@ const Home = (props) => {
             <div className="header__text--box">
                 <h1 className="heading-primary">
                     <span className="heading-primary--main">MOVIEGUY</span>
-                    <span className="heading-primary--sub">where happiness from</span>
+                    <span className="heading-primary--sub">Discover your movies</span>
                 </h1>
-                <form className="search logo--animated" >
-                    <input className="search__box" type="search" placeholder="Search" aria-label="Search" value={props.keyword} onChange={(e) => props.handleChange(e)} name="keyword" />
+                <form className="search search--animated" >
+                    <input className="search__box" type="search" placeholder="&nbsp;&nbsp;from here..." aria-label="Search" value={props.keyword} onChange={(e) => props.handleChange(e)} name="keyword" />
                      <Link to={`/search/${props.keyword}`}><button onClick={(e) => { props.handleSearch(e) }} className="btn btn-outline-success my-2 my-sm-0" type="submit" hidden>Search</button></Link>
                 </form>
-                {/* <Link to='/movies/now_playing'><img src={logo} alt="logo" className="logo logo--black logo--animated"></img></Link> */}
-
             </div>
         </header>
     )

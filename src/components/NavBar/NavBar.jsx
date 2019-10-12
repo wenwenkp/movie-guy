@@ -1,7 +1,8 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
+import logo from '../../logo.png';
 // class NavBar extends React.Component {
 const NavBar = (props) => {
     // state = {
@@ -84,6 +85,8 @@ const NavBar = (props) => {
             {nav}
         </ul>
     </nav>
+    <Link to='/'><img src={logo} alt="logo" className="logo logo--animated"></img></Link>
+
 </div>
 
 
