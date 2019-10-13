@@ -42,11 +42,11 @@ class Movie extends React.Component {
                                     <div className="heart--box">
                                         {option ?
                                             <button onClick={() => { this.props.removeFavMovie(this.state.movie.id) }}>
-                                                <div className="heart--active"></div>
+                                                <div className="heart heart--active"></div>
                                             </button>
                                             :
                                             <button onClick={() => { this.props.addFavMovie(this.state.movie) }}>
-                                                <div className="heart--inactive"></div>
+                                                <div className="heart heart--inactive"></div>
                                             </button>}
                                     </div>
                                     : null

@@ -165,67 +165,25 @@ body {
   position: relative;
   margin: 5rem; }
 
-.heart--active {
+.heart {
   position: absolute;
   margin: auto;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: #F9B3B3;
-  height: 3rem;
-  width: 3rem;
-  transform: rotate(-45deg);
-  animation-name: heartBottom;
-  animation-duration: 1.2s;
-  animation-iteration-count: infinite; }
-  .heart--active::before {
-    content: "";
-    background-color: #F9B3B3;
-    border-radius: 50%;
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    top: -1.5rem;
-    left: 0px;
-    animation-name: heartLeft;
-    animation-duration: 1.2s;
-    animation-iteration-count: infinite; }
-  .heart--active::after {
-    background-color: #F9B3B3;
-    content: "";
-    border-radius: 50%;
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    top: 0px;
-    left: 1.5rem;
-    animation-name: heartRight;
-    animation-duration: 1.2s;
-    animation-iteration-count: infinite; }
-
-.heart--inactive {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: grey;
   height: 3rem;
   width: 3rem;
   transform: rotate(-45deg); }
-  .heart--inactive::before {
+  .heart::before {
     content: "";
-    background-color: grey;
     border-radius: 50%;
     position: absolute;
     width: 3rem;
     height: 3rem;
     top: -1.5rem;
     left: 0px; }
-  .heart--inactive::after {
-    background-color: grey;
+  .heart::after {
     content: "";
     border-radius: 50%;
     position: absolute;
@@ -233,6 +191,27 @@ body {
     height: 3rem;
     top: 0px;
     left: 1.5rem; }
+  .heart--active {
+    background-color: #F9B3B3;
+    animation-name: heartBottom;
+    animation-duration: 1.2s;
+    animation-iteration-count: infinite; }
+    .heart--active::before {
+      background-color: #F9B3B3;
+      animation-name: heartLeft;
+      animation-duration: 1.2s;
+      animation-iteration-count: infinite; }
+    .heart--active::after {
+      background-color: #F9B3B3;
+      animation-name: heartRight;
+      animation-duration: 1.2s;
+      animation-iteration-count: infinite; }
+  .heart--inactive {
+    background-color: grey; }
+    .heart--inactive::before {
+      background-color: grey; }
+    .heart--inactive::after {
+      background-color: grey; }
 
 .home {
   height: 95vh;
