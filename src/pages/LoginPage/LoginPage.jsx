@@ -27,7 +27,7 @@ class LoginPage extends React.Component {
 
     isFormInvalid() {
         return !(this.state.email && this.state.pw);
-}
+    }
 
     render() {
         return (

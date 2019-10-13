@@ -12,7 +12,6 @@ class Movie extends React.Component {
         this.setState({
             movie: result,
         });
-
     }
 
     render() {
@@ -39,20 +38,19 @@ class Movie extends React.Component {
                             <div className="col">
                                 <img src={this.state.movie.poster_path} alt={this.state.movie.title}></img>
                                 {this.props.user ?
-                                    <div className="heart--box">
-                                        {option ?
-                                            <button onClick={() => { this.props.removeFavMovie(this.state.movie.id) }}>
-                                                <div className="heart heart--active"></div>
-                                            </button>
-                                            :
-                                            <button onClick={() => { this.props.addFavMovie(this.state.movie) }}>
-                                                <div className="heart heart--inactive"></div>
-                                            </button>}
-                                    </div>
-                                    : null
-                                }
+                                <div className="heart--box">
+                                    {option ?
+                                    <button onClick={() => { this.props.removeFavMovie(this.state.movie.id) }}>
+                                        <div className="heart heart--active"></div>
+                                    </button>
+                                    :
+                                    <button onClick={() => { this.props.addFavMovie(this.state.movie) }}>
+                                        <div className="heart heart--inactive"></div>
+                                    </button>}
+                                </div>
+                                : 
+                                null}
                             </div>
-
                             <div className="col detail--content">
                                 <div>
                                     <h2>tagline: </h2>
@@ -70,38 +68,37 @@ class Movie extends React.Component {
                                     <h2>budget: </h2>
                                     <span>{this.state.movie.budget}</span>
                                 </div>
-
                                 {languages ?
-                                    <ul><h2>Languages:</h2>
-                                        {languages.map((language, idx) => {
-                                            return <li key={idx}>{language.name}</li>
-                                        })}
-                                    </ul>
-                                    : ''
-                                }
+                                <ul><h2>Languages:</h2>
+                                    {languages.map((language, idx) => {
+                                        return <li key={idx}>{language.name}</li>
+                                    })}
+                                </ul>
+                                : 
+                                ''}
                                 {genres ?
-                                    <ul><h2>genres:</h2>
-                                        {genres.map((genre, idx) => {
-                                            return <li key={idx}>{genre.name}</li>
-                                        })}
-                                    </ul>
-                                    : ''
-                                }
+                                <ul><h2>genres:</h2>
+                                    {genres.map((genre, idx) => {
+                                        return <li key={idx}>{genre.name}</li>
+                                    })}
+                                </ul>
+                                : 
+                                ''}
                                 {companies ?
-                                    <ul><h2>Companies:</h2>
-                                        {companies.map((company, idx) => {
-                                            return <li key={idx}>{company.name}</li>
-                                        })}
-                                    </ul>
-                                    : ''
-                                }
+                                <ul><h2>Companies:</h2>
+                                    {companies.map((company, idx) => {
+                                        return <li key={idx}>{company.name}</li>
+                                    })}
+                                </ul>
+                                : 
+                                ''}
                                 <h2>overview: </h2>
                                 <p>{this.state.movie.overview}</p>
                             </div>
                         </div>
                     </>
-                    : ''
-                }
+                : 
+                ''}
             </div>
         )
     }
