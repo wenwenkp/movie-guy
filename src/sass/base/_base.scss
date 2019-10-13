@@ -7,6 +7,10 @@
 
 html {
     font-size: 62.5%;
+
+    @include respond(phone) {
+        font-size: 30%;
+    }
 }
 
 body {
