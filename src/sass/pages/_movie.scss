@@ -1,4 +1,4 @@
-.detail--title {
+.detail--title h1 {
     margin: 3rem;
     font-style: italic;
 }
@@ -8,23 +8,25 @@
         list-style: none;
     }
 
-    & span,
+    & div span,
     & ul,
     & p {
         font-size: 1.8rem;
     }
 
+    & div h2,
+    & ul h2,
     & h2 {
         text-transform: capitalize;
         color: $color-grey-dark-2;
     }
 
-    & div h2:not(:last-child) {
+    & div h2 {
         display: inline-block;
     }
 
-    & span,
-    & li {
+    & div span,
+    & ul li {
         margin-left: 3rem;
         font-weight: 500;
     }

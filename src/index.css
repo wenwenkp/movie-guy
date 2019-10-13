@@ -450,26 +450,28 @@ body {
   visibility: hidden;
   transform: translateY(-4rem); }
 
-.detail--title {
+.detail--title h1 {
   margin: 3rem;
   font-style: italic; }
 
 .detail--content ul {
   list-style: none; }
 
-.detail--content span,
+.detail--content div span,
 .detail--content ul,
 .detail--content p {
   font-size: 1.8rem; }
 
+.detail--content div h2,
+.detail--content ul h2,
 .detail--content h2 {
   text-transform: capitalize;
   color: #999; }
 
-.detail--content div h2:not(:last-child) {
+.detail--content div h2 {
   display: inline-block; }
 
-.detail--content span,
-.detail--content li {
+.detail--content div span,
+.detail--content ul li {
   margin-left: 3rem;
   font-weight: 500; }
