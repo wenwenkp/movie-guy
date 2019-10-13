@@ -1,8 +1,9 @@
 .heart--box {
     position: relative;
+    margin: 5rem;
 }
 
-.heart--img {
+.heart--active {
   position: absolute;
   margin: auto;
   top: 0;
@@ -43,5 +44,40 @@
     animation-name: heartRight;
     animation-duration: 1.2s;
     animation-iteration-count: infinite;
+  }
+}
+
+.heart--inactive {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: grey;
+  height: 3rem;
+  width: 3rem;
+  transform: rotate(-45deg);
+
+  &::before {
+    content: "";
+    background-color: grey;
+    border-radius: 50%;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: -1.5rem;
+    left: 0px;
+  }
+
+  &::after {
+    background-color: grey;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: 0px;
+    left: 1.5rem;
   }
 }
