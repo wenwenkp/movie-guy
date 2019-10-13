@@ -264,7 +264,8 @@ body {
   border: 3rem solid black; }
   .search__box {
     width: 100%;
-    font-size: 2rem; }
+    font-size: 2rem;
+    border: none; }
   .search--animated {
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards; }
