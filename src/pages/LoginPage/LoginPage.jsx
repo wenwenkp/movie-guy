@@ -25,6 +25,10 @@ class LoginPage extends React.Component {
         }
     }
 
+    isFormInvalid() {
+        return !(this.state.email && this.state.pw);
+}
+
     render() {
         return (
             <div className="login">
@@ -39,7 +43,7 @@ class LoginPage extends React.Component {
                             <label htmlFor="pw" className="form__label">Password</label>
                         </div>
                         <div className="form__group">
-                            <button className="button button--white">Login</button>
+                            <button className="button button--white" disabled={this.isFormInvalid()}>Login</button>
                         </div>
                     </form>
                 </div>
