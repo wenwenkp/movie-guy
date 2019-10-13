@@ -14,7 +14,7 @@
   width: 3rem;
   transform: rotate(-45deg);
   animation-name: heartBottom;
-  animation-duration: 1.5s;
+  animation-duration: 1.2s;
   animation-iteration-count: infinite;
 
   &::before {
@@ -27,7 +27,7 @@
     top: -1.5rem;
     left: 0px;
     animation-name: heartLeft;
-    animation-duration: 1.5s;
+    animation-duration: 1.2s;
     animation-iteration-count: infinite;
   }
 
@@ -41,7 +41,7 @@
     top: 0px;
     left: 1.5rem;
     animation-name: heartRight;
-    animation-duration: 1.5s;
+    animation-duration: 1.2s;
     animation-iteration-count: infinite;
   }
 }
