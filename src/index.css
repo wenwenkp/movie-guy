@@ -58,6 +58,39 @@
     opacity: 1;
     transform: translateY(0); } }
 
+@keyframes heartLeft {
+  0% {
+    background-color: #FCD9D9;
+    transform: translateX(-0.1rem) translateY(0.1rem) rotate(-45deg); }
+  50% {
+    background-color: #F9B3B3;
+    transform: rotate(-45deg); }
+  100% {
+    background-color: #FCD9D9;
+    transform: translateX(0rem) translateY(0rem) rotate(-45deg); } }
+
+@keyframes heartBottom {
+  0% {
+    background-color: #FCD9D9;
+    transform: translateX(0rem) translateY(1rem) rotate(-45deg); }
+  50% {
+    background-color: #F9B3B3;
+    transform: rotate(-45deg); }
+  100% {
+    background-color: #FCD9D9;
+    transform: translateX(0rem) translateY(0rem) rotate(-45deg); } }
+
+@keyframes heartRight {
+  0% {
+    background-color: #FCD9D9;
+    transform: translateX(-0.1rem) translateY(0.1rem) rotate(-45deg); }
+  50% {
+    background-color: #F9B3B3;
+    transform: rotate(-45deg); }
+  100% {
+    background-color: #FCD9D9;
+    transform: translateX(0rem) translateY(0rem) rotate(-45deg); } }
+
 /* reset everything */
 * {
   margin: 0;
@@ -127,6 +160,48 @@ body {
 .button--animated {
   animation: moveInBottom .5s ease-out .75s;
   animation-fill-mode: backwards; }
+
+.heart--box {
+  position: relative; }
+
+.heart--img {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #F9B3B3;
+  height: 3rem;
+  width: 3rem;
+  transform: rotate(-45deg);
+  animation-name: heartBottom;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite; }
+  .heart--img::before {
+    content: "";
+    background-color: #F9B3B3;
+    border-radius: 50%;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: -1.5rem;
+    left: 0px;
+    animation-name: heartLeft;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite; }
+  .heart--img::after {
+    background-color: #F9B3B3;
+    content: "";
+    border-radius: 50%;
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    top: 0px;
+    left: 1.5rem;
+    animation-name: heartRight;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite; }
 
 .home {
   height: 95vh;
@@ -364,3 +439,27 @@ body {
   opacity: 0;
   visibility: hidden;
   transform: translateY(-4rem); }
+
+.detail--title {
+  margin: 3rem;
+  font-style: italic; }
+
+.detail--content ul {
+  list-style: none; }
+
+.detail--content span,
+.detail--content ul,
+.detail--content p {
+  font-size: 1.8rem; }
+
+.detail--content h2 {
+  text-transform: capitalize;
+  color: #999; }
+
+.detail--content div h2:not(:last-child) {
+  display: inline-block; }
+
+.detail--content span,
+.detail--content li {
+  margin-left: 3rem;
+  font-weight: 500; }

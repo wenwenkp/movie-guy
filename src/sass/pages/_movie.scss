@@ -1,0 +1,31 @@
+.detail--title {
+    margin: 3rem;
+    font-style: italic;
+}
+
+.detail--content {
+    & ul {
+        list-style: none;
+    }
+
+    & span,
+    & ul,
+    & p {
+        font-size: 1.8rem;
+    }
+
+    & h2 {
+        text-transform: capitalize;
+        color: $color-grey-dark-2;
+    }
+
+    & div h2:not(:last-child) {
+        display: inline-block;
+    }
+
+    & span,
+    & li {
+        margin-left: 3rem;
+        font-weight: 500;
+    }
+}
