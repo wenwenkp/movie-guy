@@ -4,67 +4,67 @@
 }
 
 .heart {
-position: absolute;
-  margin: auto;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 3rem;
-  width: 3rem;
-  transform: rotate(-45deg);
+	position: absolute;
+	margin: auto;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	height: 3rem;
+	width: 3rem;
+	transform: rotate(-45deg);
 
-  &::before {
-    content: "";
-    border-radius: 50%;
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    top: -1.5rem;
-    left: 0px;
-  }
+	&::before {
+		content: "";
+		border-radius: 50%;
+		position: absolute;
+		width: 3rem;
+		height: 3rem;
+		top: -1.5rem;
+		left: 0px;
+	}
 
-  &::after {
-    content: "";
-    border-radius: 50%;
-    position: absolute;
-    width: 3rem;
-    height: 3rem;
-    top: 0px;
-    left: 1.5rem;
-  }
+	&::after {
+		content: "";
+		border-radius: 50%;
+		position: absolute;
+		width: 3rem;
+		height: 3rem;
+		top: 0px;
+		left: 1.5rem;
+	}
 
-&--active {
-  background-color: #F9B3B3;
-  animation-name: heartBottom;
-  animation-duration: 1.2s;
-  animation-iteration-count: infinite;
+	&--active {
+		background-color: #F9B3B3;
+		animation-name: heartBottom;
+		animation-duration: 1.2s;
+		animation-iteration-count: infinite;
 
-  &::before {
-    background-color: #F9B3B3;
-    animation-name: heartBoth;
-    animation-duration: 1.2s;
-    animation-iteration-count: infinite;
-  }
+		&::before {
+			background-color: #F9B3B3;
+			animation-name: heartBoth;
+			animation-duration: 1.2s;
+			animation-iteration-count: infinite;
+		}
 
-  &::after {
-    background-color: #F9B3B3;
-    animation-name: heartBoth;
-    animation-duration: 1.2s;
-    animation-iteration-count: infinite;
-  }
-}
+		&::after {
+			background-color: #F9B3B3;
+			animation-name: heartBoth;
+			animation-duration: 1.2s;
+			animation-iteration-count: infinite;
+		}
+	}
 
-&--inactive {
-  background-color: grey;
+	&--inactive {
+		background-color: grey;
 
-  &::before {
-    background-color: grey;
-  }
+		&::before {
+			background-color: grey;
+		}
 
-  &::after {
-    background-color: grey;
-  }
-}
+		&::after {
+			background-color: grey;
+		}
+	}
 }
 

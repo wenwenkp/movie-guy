@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 
 const Profile = (props) => {
 
@@ -12,11 +12,9 @@ const Profile = (props) => {
                     <hr></hr>
                     {props.myMovies.map((movie, idx) => {
                         return (
-                            <div key={idx}>
-                                <Link to={`/movie/${movie.movieId}`}>
-                                    <img src={movie.imgUrl} alt={movie.title}></img>
-                                </Link>
-                            </div>
+                            <NavLink to={`/movie/${movie.movieId}`} key={idx}>
+                                <img src={movie.imgUrl} alt={movie.title}></img>
+                            </NavLink>
                         )
                     })}
                 </div>
