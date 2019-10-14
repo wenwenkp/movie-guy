@@ -124,7 +124,7 @@ class App extends React.Component {
 							return (<Popular />)}} 
 						/>
 						<Route exact path='/search/:keyword' render={() => {
-							return (<MovieList movies={this.state.searchResult} />)}} 
+							return (<MovieList movies={this.state.searchResult} title={`Search Result`}/>)}} 
 						/>
 						<Route exact path='/movie/:id' render={(props) => {
 							return (
