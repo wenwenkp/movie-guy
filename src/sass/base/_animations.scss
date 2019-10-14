@@ -74,7 +74,7 @@
         transform: translateY(0);
     }
 }
-@keyframes heartLeft {
+@keyframes heartBoth {
     0% {
       background-color: #FCD9D9;
       transform: translateX(-.1rem) translateY(.1rem) rotate(-45deg);
@@ -94,22 +94,6 @@
     0% {
       background-color: #FCD9D9;
       transform: translateX(0rem) translateY(1rem) rotate(-45deg);
-
-    }
-    50% {
-      background-color: #F9B3B3;
-      transform:rotate(-45deg);
-    }
-    100% {
-      background-color: #FCD9D9;
-      transform: translateX(0rem) translateY(0rem) rotate(-45deg);
-
-    }
-}
-@keyframes heartRight {
-    0% {
-      background-color: #FCD9D9;
-      transform: translateX(-.1rem) translateY(.1rem) rotate(-45deg);
 
     }
     50% {

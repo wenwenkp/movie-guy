@@ -42,14 +42,14 @@ position: absolute;
 
   &::before {
     background-color: #F9B3B3;
-    animation-name: heartLeft;
+    animation-name: heartBoth;
     animation-duration: 1.2s;
     animation-iteration-count: infinite;
   }
 
   &::after {
     background-color: #F9B3B3;
-    animation-name: heartRight;
+    animation-name: heartBoth;
     animation-duration: 1.2s;
     animation-iteration-count: infinite;
   }
