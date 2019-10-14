@@ -1,5 +1,4 @@
 .navigation {
-
     &__button{
         background-color: $color-white;
         height: 7rem;
@@ -50,30 +49,24 @@
     &__link {
         &:link,
         &:visited{
-        display: inline-block;
-        font-size: 3rem;
-        font-weight: 300;
-        padding: 1rem 2rem;
-        color: $color-white;
-        text-decoration: none;
-        text-transform: uppercase;
-        background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
-        background-size: 230%;
-        transition: all, .4s;
-
-        span:  {
-            margin-right: 10rem;
             display: inline-block;
+            font-size: 3rem;
+            font-weight: 300;
+            padding: 1rem 2rem;
+            color: $color-white;
+            text-decoration: none;
+            text-transform: uppercase;
+            background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);
+            background-size: 230%;
+            transition: all, .4s;
         }
-
-    }
-
-    &:hover,
-    &:active {
-        background-position: 100%;
-        color: $color-black;
-        transform: translateX(1rem);
-    }
+    
+        &:hover,
+        &:active {
+            background-position: 100%;
+            color: $color-black;
+            transform: translateX(1rem);
+        }
     }
     &__checkbox:checked ~ &__background {
         transform: scale(80);
@@ -140,11 +133,9 @@
     bottom: 5rem;
     z-index: 999;
 
-
     &:hover {
         transform: translateY(-3px);
         box-shadow: 0 0rem 3rem rgba(249, 38, 107, .5);
-
         &::after {
             transform: scaleX(1.4) scaleY(1.6);
         }
