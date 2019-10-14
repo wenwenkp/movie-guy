@@ -11,9 +11,7 @@ class NowPlaying extends React.Component {
 
     async componentDidMount() {
         let movies = await movieApi.getMovies('now_playing');
-        this.setState({
-            movies,
-        });
+        this.setState({ movies });
     }
     render() {
         return (

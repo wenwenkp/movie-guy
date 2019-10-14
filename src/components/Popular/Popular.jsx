@@ -11,9 +11,7 @@ class Popular extends React.Component {
 
     async componentDidMount() {
         let movies = await movieApi.getMovies('popular');
-        this.setState({
-            movies,
-        });
+        this.setState({ movies });
     }
     render() {
         return (

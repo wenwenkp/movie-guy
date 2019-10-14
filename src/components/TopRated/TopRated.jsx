@@ -19,8 +19,8 @@ class TopRated extends React.Component {
         return (
             <div>
                 {this.state.movies ?
-                <MovieList movies={this.state.movies} title={this.state.title} />
-                : 'Loading...'}
+                    <MovieList movies={this.state.movies} title={this.state.title} />
+                    : 'Loading...'}
             </div>
         )
     }
