@@ -2,6 +2,7 @@ import tokenService from '../utils/tokenService';
 
 const BASE_URL = '/api/favmovie';
 
+// function to fetch user fav movies from backend
 function getFavMovie() {
 	return fetch(`${BASE_URL}/get`, {
 		method: 'GET',
@@ -14,6 +15,7 @@ function getFavMovie() {
 	});
 }
 
+// function to send request to add movie to user fav movie list
 function addFavMovie(movieId, title, url) {
 	return fetch(`${BASE_URL}/add`, {
 		method: 'POST',
@@ -28,6 +30,7 @@ function addFavMovie(movieId, title, url) {
 	});
 }
 
+// function to send request to remove movie from user fav move list
 function removeFavMovie(movieId) {
 	return fetch(`${BASE_URL}/remove/${movieId}`, {
 		method: 'DELETE',

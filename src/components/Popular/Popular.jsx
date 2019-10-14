@@ -9,6 +9,7 @@ class Popular extends React.Component {
         movies: [],
     }
 
+    // fetch popular movies data
     async componentDidMount() {
         let movies = await movieApi.getMovies('popular');
         this.setState({ movies });

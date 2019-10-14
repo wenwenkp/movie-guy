@@ -26,6 +26,7 @@ class App extends React.Component {
 		isChecked: false,
 	};
 
+	// update user fav movies in front end with data from the backend
 	async componentDidMount() {
 		if (this.state.user) {
 			let result = await userApi.getFavMovie();
@@ -33,6 +34,7 @@ class App extends React.Component {
 		}
 	}
 
+	// clear user info and user fav movie info in frontend after logout
 	handleLogout = () => {
 		this.handleButtonClick();
 		userService.logout();
@@ -42,6 +44,7 @@ class App extends React.Component {
 		});
 	}
 
+	// once user signup or login will get user favmovie data and user info from back end and update frontend
 	handleSignupOrLogin = async () => {
 		let result = await userApi.getFavMovie();
 		this.setState({
@@ -54,6 +57,7 @@ class App extends React.Component {
 		this.setState({ [e.target.name]: e.target.value });
 	}
 
+	// store search result and keyword
 	handleSearch = async () => {
 		let result = await movieApi.searchMovie(this.state.keyword);
 		this.setState({
@@ -62,24 +66,29 @@ class App extends React.Component {
 		});
 	}
 
+	// function to add fav movie
 	addFavMovie = async (movie) => {
 		let result = await userApi.addFavMovie(movie.id, movie.title, movie.poster_path);
 		this.setState({ myMovies: result });
 	}
 
+	// function to remove favmovie
 	removeFavMovie = async (movieId) => {
 		let result = await userApi.removeFavMovie(movieId);
 		this.setState({ myMovies: result });
 	}
 
+	// handle click on menu page
 	handleButtonClick = () => {
 		this.toggleIsChecked();
 	}
 
+	// handle open and close for menu page
 	handleCheckboxChange = (event) => {
 		this.setState({ isChecked: event.target.checked });
 	}
 
+	// handle check and uncheck for checkbox(menu)
 	toggleIsChecked = () => {
 		this.setState({ isChecked: !this.state.isChecked });
 	}

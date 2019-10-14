@@ -9,6 +9,7 @@ class NowPlaying extends React.Component {
         movies: [],
     }
 
+    // fetch now_playing movies data
     async componentDidMount() {
         let movies = await movieApi.getMovies('now_playing');
         this.setState({ movies });

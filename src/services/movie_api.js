@@ -3,6 +3,9 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 const apiBaseUrl = 'https://api.themoviedb.org/3';
 const imageBaseUrl = 'https://image.tmdb.org/t/p/w300';
 
+// function to fetch api database to get popular, now_playing and top_rated movies
+// results will be up to 5 pages only
+// and add image base url into each movie object
 async function getMovies(type) {
     let choice = type;
     let movieUrl = `${apiBaseUrl}/movie/${choice}?api_key=${API_KEY}`;
@@ -24,6 +27,8 @@ async function getMovies(type) {
     return movieList;
 };
 
+// function to fetch individual movie details
+// and add image base url to each movie object
 async function getMovie(id) {
     let movieId = id;
     const movieUrl = `${apiBaseUrl}/movie/${movieId}?api_key=${API_KEY}`;
@@ -32,6 +37,9 @@ async function getMovie(id) {
     return movie;
 };
 
+// function to search movie
+// add image base url to each movie object
+// search result up to 5 pages
 async function searchMovie(input) {
     let query = input;
     const searchUrl = `${apiBaseUrl}/search/movie?api_key=${API_KEY}&query=${query}`;

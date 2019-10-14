@@ -7,6 +7,7 @@ class Movie extends React.Component {
         movie: {},
     }
 
+    // function to get movie detail
     async componentDidMount() {
         let result = await movieApi.getMovie(this.props.id);
         this.setState({

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// name for each image move animation
 let animationArray = ['imageMoveInTop', 'imageMoveInBottom', 'imageMoveInLeft', 'imageMoveInRight']
 
 const MovieList = (props) => {

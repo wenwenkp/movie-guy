@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../logo.png';
 const NavBar = (props) => {
 
+    // show different navbar info per user login status
     let nav = props.user ?
         <>
             <li className="navigation__item">

@@ -9,6 +9,7 @@ class TopRated extends React.Component {
         movies: [],
     }
 
+    // fetch top_rated movies data
     async componentDidMount() {
         let movies = await movieApi.getMovies('top_rated');
         this.setState({
