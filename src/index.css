@@ -107,8 +107,7 @@ body {
   font-weight: 400;
   font-size: 1.6rem;
   line-height: 1.7;
-  color: grey;
-  padding: 3rem; }
+  color: grey; }
 
 .button, .button:link, .button:visited {
   padding: .8rem 8rem;
@@ -215,7 +214,7 @@ body {
       background-color: grey; }
 
 .home {
-  height: 95vh;
+  height: 100vh;
   position: relative; }
   .home__text--box {
     position: absolute;
