@@ -1,6 +1,6 @@
 # MovieGuy
 
-- MovieGuy is a MERN-stack app for users or guests to explore movies.
+- MovieGuy is a MERN-stack fully responsive app for users or guests to explore movies.
 - Users will be able to save their favourite movies into their profile, and remove them from the profile.
 - The movie data is from an third-party API, TMDb(The Movie Database).
 
